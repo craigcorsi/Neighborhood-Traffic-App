@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Create React Express App
 
 ## About This Boilerplate
@@ -27,3 +28,6 @@ Your app should now be running on <http://localhost:3000>. The Express server sh
 ## Deployment (Heroku)
 
 To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+=======
+
+>>>>>>> 5b7168092263dc620e9c9a4f3f32b28789f7295c
