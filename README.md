@@ -4,6 +4,12 @@
 
 source: https://nbviewer.jupyter.org/github/eflegara/BTW-Sandpile-Model/blob/master/Sandpile.ipynb
 
+# Sandpile illustration:
+
+[![Avalanche Dynamics](https://img.youtube.com/vi/zHoiZtyA82E/0.jpg)](https://www.youtube.com/watch?v=zHoiZtyA82E)
+
+https://youtu.be/zHoiZtyA82E
+
 # Create React Express App
 
 ## About This Boilerplate
