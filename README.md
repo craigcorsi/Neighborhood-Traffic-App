@@ -7,8 +7,7 @@ source: https://nbviewer.jupyter.org/github/eflegara/BTW-Sandpile-Model/blob/mas
 # Sandpile illustration:
 
 [![Avalanche Dynamics](https://img.youtube.com/vi/zHoiZtyA82E/0.jpg)](https://www.youtube.com/watch?v=zHoiZtyA82E)
-
-https://youtu.be/zHoiZtyA82E
+Courtesy of R.M. Dimeo; the color of a pixel records the number of 'topples' that have taken place at that location, so each avalanche "heats up" the area it covers.
 
 # Create React Express App
 
