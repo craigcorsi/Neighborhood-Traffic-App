@@ -18,6 +18,7 @@ Graph.prototype.addVertex = function(v) {
     // create new 
     this.vertices[v] = {
         "in-degree": 0,
+        "inhabitants": [],
         "name": v,
         "out-degree": 0,
         "weight": 1
