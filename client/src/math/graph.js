@@ -37,6 +37,7 @@ Graph.prototype.addEdge = function(v, w) {
     } else {
         this.edges[v][w] = {
             "id": Math.random().toString(),
+            "name": "",
             "pair": [v, w],
             "source": v,
             "sink": w,
@@ -46,7 +47,7 @@ Graph.prototype.addEdge = function(v, w) {
         // Update counts
         this.numberOfEdges++;
         this.vertices[v]["out-degree"] += 1;
-        this.vertices[v]["in-degree"] += 1;
+        this.vertices[w]["in-degree"] += 1;
 
         return this;
     }
@@ -54,8 +55,15 @@ Graph.prototype.addEdge = function(v, w) {
 
 module.exports = Graph;
 
-var t3 = new Graph();
-t3 = t3.addVertex(1).addVertex(2).addVertex(3)
-.addEdge(1,2).addEdge(2,3).addEdge(1,3);
+// var t3 = new Graph();
+// t3 = t3.addVertex(1).addVertex(2).addVertex(3)
+// .addEdge(1,2).addEdge(2,3).addEdge(1,3);
 
-console.log(t3);
+// console.log(t3);
+
+
+// var c3 = new Graph();
+// c3 = c3.addVertex(1).addVertex(2).addVertex(3)
+// .addEdge(1,2).addEdge(2,3).addEdge(3,1);
+
+// console.log(c3);
