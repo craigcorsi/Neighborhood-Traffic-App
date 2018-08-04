@@ -23,6 +23,7 @@
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.15.4",
     "if-env": "^1.0.4",
-    "query-overpass": "^1.5.3"
+    "query-overpass": "^1.5.3",
+    "react-bootstrap": "^0.32.1"
   }
 }

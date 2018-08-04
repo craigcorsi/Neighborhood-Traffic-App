@@ -7,11 +7,15 @@ class Graph {
     }
 }
 
+
 Graph.prototype.addVertex = function(v) {
+    // No duplicate vertices allowed
     if (v in this.vertices) {
         console.log(`The vertex ${v} has already been added.\n`)
         return this; 
     }
+
+    // create new 
     this.vertices[v] = {
         "in-degree": 0,
         "name": v,
