@@ -1,14 +1,14 @@
 const StreetNetwork = require("./streetNetwork.js");
 
 const intersections = {
-    "CM1": { "coordinates": [22, 22] },
-    "CM2": { "coordinates": [22, 23] },
-    "CM3": { "coordinates": [22, 24] },
-    "CM4": { "coordinates": [22, 25] },
-    "M181_2": { "coordinates": [21, 23] },
-    "M181_4": { "coordinates": [23, 23] },
-    "M90_2": { "coordinates": [21, 24] },
-    "M90_4": { "coordinates": [23, 24] },
+    "CM1": { "coordinates": [150, 150] },
+    "CM2": { "coordinates": [150, 200] },
+    "CM3": { "coordinates": [150, 250] },
+    "CM4": { "coordinates": [150, 300] },
+    "M181_2": { "coordinates": [100, 200] },
+    "M181_4": { "coordinates": [200, 200] },
+    "M90_2": { "coordinates": [100, 250] },
+    "M90_4": { "coordinates": [200, 250] },
 };
 
 const roads = {
@@ -26,6 +26,17 @@ const roads = {
     "ColbyNW1": { "source": "CM1", "sink": "M181_4" }
 };
 
+// generate population
+var person = {
+    index: 0,
+    position: null,
+    chanceOfMoving: .1,
+};
+const population = [];
+for (let i = 0; i < 10; i++) {
+    population.push({...person, index: i});
+}
+
 class SandpileCore {
     constructor(network, population) {
         this.network = network;
@@ -38,7 +49,6 @@ class SandpileCore {
 SandpileCore.prototype.assignNodes = function() {
     let l = Object.keys(this.network.vertices).length;
     for (let i=0; i < this.population.length; i++) {
-        console.log(i);
         // give each person a reference to their nodes
         this.population[i].position = Math.floor(Math.random() * l);
         // give each node a reference to the people standing there
@@ -47,7 +57,7 @@ SandpileCore.prototype.assignNodes = function() {
     }
 }
 
-SandpileCore.prototype.decide = function(person) {
+SandpileCore.prototype.decidePerson = function(person) {
     if (Math.random() < person.chanceOfMoving) {
         console.log(`person ${person.index} would like to move.`);
         return true;
@@ -56,23 +66,12 @@ SandpileCore.prototype.decide = function(person) {
     }
 }
 
-SandpileCore.prototype.decideAll = function() {
+SandpileCore.prototype.decideAllPeople = function() {
     var decisions = [];
     for (var i = 0; i < population.length; i++) {
-        decisions.push(this.decide(population[i]));
+        decisions.push(this.decidePerson(population[i]));
     }
     return decisions;
-}
-
-// generate population
-var person = {
-    index: 0,
-    position: null,
-    chanceOfMoving: .1,
-};
-var population = [];
-for (let i = 0; i < 10; i++) {
-    population.push({...person, index: i});
 }
 
 // create sandpile core
@@ -80,5 +79,8 @@ var net1 = new StreetNetwork(intersections, roads);
 var sandpile1 = new SandpileCore(net1, population);
 
 
-console.log(JSON.stringify(sandpile1, null, 2));
-console.log(JSON.stringify(sandpile1.decideAll(), null, 2));
+// console.log(JSON.stringify(sandpile1, null, 2));
+// console.log(JSON.stringify(sandpile1.decideAllPeople(), null, 2));
+
+
+module.exports = SandpileCore;
