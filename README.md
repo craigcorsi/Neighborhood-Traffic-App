@@ -1,4 +1,4 @@
-![Logo](./client/src/images/NTAlogo.png) A MERN application that renders cross sections of street data as interactive applets utilizing the Abelian sandpile model to study traffic flow and crowd behavior in a give neighborhood.  
+![Logo](./client/src/images/NTAlogo.png) A MERN application that renders a cross section of street data as interactive applets, utilizing the Abelian sandpile model to study traffic flow and crowd behavior in a given neighborhood.  
 
 # About Abelian Sandpiles:
 
