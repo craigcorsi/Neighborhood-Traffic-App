@@ -1,4 +1,4 @@
-![Logo](./client/src/images/NTAlogo.PNG)
+![Logo](./client/src/images/NTAlogo.png)
 
 # About Abelian Sandpiles:
 
