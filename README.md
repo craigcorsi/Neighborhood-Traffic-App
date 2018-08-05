@@ -1,4 +1,5 @@
-![Logo](./client/src/images/NTAlogo.png)
+![Logo](./client/src/images/NTAlogo.png) The best damn thing on the internet.
+
 # About Abelian Sandpiles:
 
 The sandpile model (proposed by Bak, Tang, and Wiesenfeld) is a simple N-by-N grid, wherein each grid cell (box) can have 0 to 3 sand particles. At each iteration, a single grain of sand (particle) is added to the system by dropping it on a random cell in the sandpile table. Once a box stockpiles 4 particles of sand, the grains are then distributed (toppled over) to the neighboring cells, with each neighbor gaining a grain of sand. This toppling over of grains from one cell to the neighboring cells can lead the entire system to "criticality" causing "avalanches" (this can be thought of as a series of topples that occurs every time a box collects four grains of sand) resulting in some grains leaving the system when the toppling over happens at the grid's edge (boundary). With the same internal mechanism (dropping of a grain of sand) governing the sandpile, the resulting avalanche sizes can have varying largeness.
