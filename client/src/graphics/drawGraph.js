@@ -42,10 +42,18 @@ var person = {
     position: null,
     chanceOfMoving: .1,
 };
-const population = [];
-for (let i = 0; i < 10; i++) {
-    population.push({...person, index: i});
+function generatePopulation(n) {
+    var group = [];
+    for (let i = 0; i < n; i++) {
+        group.push({...person, index: i});
+    }
+    return group;
 }
+const people = generatePopulation(30);
+
+
+
+
 
 // create sandpile core
 var net1 = new StreetNetwork(intersections, roads);
