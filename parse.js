@@ -1,4 +1,4 @@
-var text, parser, xmlDoc;
+svar text, parser, xmlDoc;
 var fs = require("fs");
 const cheerio = require('cheerio');
 
