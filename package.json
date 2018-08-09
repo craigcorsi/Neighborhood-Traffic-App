@@ -26,6 +26,8 @@
     "if-env": "^1.0.4",
     "mongoose": "^5.2.7",
     "query-overpass": "^1.5.3",
-    "react-bootstrap": "^0.32.1"
+    "react-bootstrap": "^0.32.1",
+    "svg.js": "^2.6.5",
+    "svgdom": "0.0.15"
   }
 }
