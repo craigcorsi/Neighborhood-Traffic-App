@@ -9,6 +9,6 @@ const userSchema = new Schema({
   date: { type: Date, required: true }
 });
 
-const User =  mongoose.model("Article", userSchema);
+const User =  mongoose.model("User", userSchema);
 
 module.exports = User;
