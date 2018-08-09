@@ -2,5 +2,12 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-}
 
+  background-image: url(https://www.walldevil.com/wallpapers/a94/sand-desert.jpg);
+  background-image: rgba(0,0,0,0.5);
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
