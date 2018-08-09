@@ -42,11 +42,11 @@ overpass('node(44.9454,-93.3000,44.9680,-93.2850);out;', function (error, respon
     return;
   }
   response = JSON.stringify(response, null, 2);
-  console.log(response);
+  // console.log(response);
 });
 
 
-mongoose.Promise = glogal.Promise;
+mongoose.Promise = global.Promise;
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/Neighborhood-Traffic-db",
 );

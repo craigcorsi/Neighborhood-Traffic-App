@@ -1,3 +1,6 @@
+// I'm using User generic type to set an example
+// This user can be sorted in increasing order
+
 const db = require("../models");
 
 //Mongoose query abstractions
