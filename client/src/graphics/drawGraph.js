@@ -9,6 +9,7 @@ const document = window.document;
 
 var StreetNetwork = require("../math/streetNetwork.js");
 var SandpileCore = require("../math/sandpileCore.js");
+var sandpile = require("./parseToGraph.js");
 
 const intersections = {
     "CM1": { "coordinates": [150, 150] },
@@ -56,8 +57,8 @@ const people = generatePopulation(30);
 
 
 // create sandpile core
-var net1 = new StreetNetwork(intersections, roads);
-var sandpile1 = new SandpileCore(net1, population);
+// var net1 = new StreetNetwork(intersections, roads);
+// var sandpile1 = new SandpileCore(net1, people);
 
 // console.log(JSON.stringify(sandpile1, null, 2));
 
@@ -82,8 +83,8 @@ const draw = SVG(document.documentElement);
 draw.rect(500,500).fill('#ddd');
 
 // load network from sandpile object
-var ways = sandpile1.network.edges;
-var nodes = sandpile1.network.vertices;
+var ways = sandpile.network.edges;
+var nodes = sandpile.network.vertices;
 
 // draw roads
 
@@ -110,7 +111,9 @@ for (let v in nodes) {
 
 //print svg
 console.log(draw.svg());
-fs.writeFile("map.svg", draw.svg(), function(error){
+fs.writeFile("lynlake.svg", draw.svg(), function(error){
     if (error) return console.log(error);
     console.log("file written!");
 });
+
+// console.log(sandpile);
