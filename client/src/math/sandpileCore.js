@@ -92,7 +92,7 @@ SandpileCore.prototype.decideAllPeople = function () {
 
 SandpileCore.prototype.decidePerson = function (person) {
     if (Math.random() < person.chanceOfMoving) {
-        console.log(`person ${person.index} would like to move.`);
+        // console.log(`person ${person.index} would like to move.`);
         return true;
     } else {
         return false;
@@ -191,13 +191,13 @@ function printPeople() {
     })));
 }
 
-printPeople();
-sandpile1.takeOffOVerflowAtAllNodes();
-printPeople();
-sandpile1.takeOffOVerflowAtAllNodes();
-printPeople();
-sandpile1.takeOffOVerflowAtAllNodes();
-printPeople();
+// printPeople();
+// sandpile1.takeOffOVerflowAtAllNodes();
+// printPeople();
+// sandpile1.takeOffOVerflowAtAllNodes();
+// printPeople();
+// sandpile1.takeOffOVerflowAtAllNodes();
+// printPeople();
 
 // console.log(JSON.stringify(sandpile1.decideAllPeople(), null, 2));
 

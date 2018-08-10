@@ -8,8 +8,9 @@ class StreetNetwork extends Graph {
             this.vertices[i].coordinates = intersections[i]["coordinates"];
         }
         for (let j in roads) {
-            var v = roads[j].source;
-            var w = roads[j].sink;
+            var v = roads[j]["source"];
+            var w = roads[j]["sink"];
+            // console.log(`\n\n${JSON.stringify(roads[j], null, 2)}\n\n`);
             this.addEdge(v, w);
             this.edges[v][w].name = j;
         }
