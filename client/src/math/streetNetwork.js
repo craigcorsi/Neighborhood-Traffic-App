@@ -10,7 +10,7 @@ class StreetNetwork extends Graph {
         for (let j in roads) {
             var v = roads[j]["source"];
             var w = roads[j]["sink"];
-            console.log(v, w);
+            // console.log(`\n\n${JSON.stringify(roads[j], null, 2)}\n\n`);
             this.addEdge(v, w);
             this.edges[v][w].name = j;
         }
