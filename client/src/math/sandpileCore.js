@@ -39,7 +39,7 @@ function generatePopulation(n) {
     }
     return group;
 }
-const population = generatePopulation(20);
+const population = generatePopulation(10);
 
 
 
@@ -149,13 +149,19 @@ SandpileCore.prototype.takeOffOverflowAtNode = function (v, threshold) {
     var outNeighbors = Object.keys(this.network.edges[v]);
     var numberOfNeighbors = outNeighbors.length;
     var inhabs = this.network.vertices[v].inhabitants;
-    if (inhabs.length > numberOfNeighbors + threshold) {
+    if (inhabs.length >= numberOfNeighbors + threshold) {
         for (let i = 0; i < numberOfNeighbors; i++) {
             // send the person at index 0 to the ith neighbor
             var nextTraveler = this.population[inhabs[0]];
             this.detachPerson(nextTraveler);
             this.chooseNodeFor(nextTraveler, outNeighbors[i]);
         }
+    }
+}
+
+SandpileCore.prototype.takeOffOVerflowAtAllNodes = function (threshold) {
+    for (v in this.network.vertices) {
+        this.takeOffOverflowAtNode(v, threshold);
     }
 }
 
@@ -175,23 +181,24 @@ var sandpile1 = new SandpileCore(net1, population);
 // console.log(sandpile1.population);
 
 // compare at all vertices where there are more inhabitants than out-neighboring nodes
-console.log(JSON.stringify(Object.keys(sandpile1.network.vertices).map(function (v) {
-    return [
-        sandpile1.network.vertices[v].inhabitants.length,
-        Object.keys(sandpile1.network.edges[v]).length
-    ];
-})));
 
-if (sandpile1.network.vertices["CM4"].inhabitants.length >
-    Object.keys(sandpile1.network.edges["CM4"]).length) {
-    sandpile1.takeOffOverflowAtNode("v", 0);
+function printPeople() {
+    console.log(JSON.stringify(Object.keys(sandpile1.network.vertices).map(function (v) {
+        return [
+            sandpile1.network.vertices[v].inhabitants.length,
+            Object.keys(sandpile1.network.edges[v]).length
+        ];
+    })));
 }
 
-console.log(JSON.stringify(Object.keys(sandpile1.network.vertices).map(function(v){
-    return [
-        sandpile1.network.vertices[v].inhabitants.length,
-        Object.keys(sandpile1.network.edges[v]).length];
-})));
+printPeople();
+sandpile1.takeOffOVerflowAtAllNodes();
+printPeople();
+sandpile1.takeOffOVerflowAtAllNodes();
+printPeople();
+sandpile1.takeOffOVerflowAtAllNodes();
+printPeople();
+
 // console.log(JSON.stringify(sandpile1.decideAllPeople(), null, 2));
 
 
