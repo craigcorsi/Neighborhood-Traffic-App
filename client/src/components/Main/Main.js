@@ -8,7 +8,6 @@ class Main extends React.Component {
             <Grid>
                 <Row>
                 <Col xs={12} md={8}>
-    
                         <FormGroup>  
                             <ButtonGroup> 
                                 <Button bsStyle="primary"><Glyphicon glyph="star align-right" />Save</Button>
