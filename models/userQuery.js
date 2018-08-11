@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const UserQuerySchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'users'
+    ref: 'user'
   },
   mapName: {
     type: String,
