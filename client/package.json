@@ -7,7 +7,14 @@
   "dependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-scripts": "1.0.14"
+<<<<<<< HEAD
+    "react-scripts": "1.0.14",
+    "svg.js": "^2.6.5",
+    "svgdom": "^0.0.15",
+    "svgjs": "^2.6.2"
+=======
+    "react-scripts": "^1.1.4"
+>>>>>>> afbb3f80833b1c95cecee41e86cc0f9b1a809f2e
   },
   "scripts": {
     "start": "react-scripts start",
