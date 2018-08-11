@@ -20,4 +20,4 @@ const locationIn = require("../../db");
         }
 
     });
-    console.log(node +""+way +""+relation);
+    console.log(node +" "+way +" "+relation);
