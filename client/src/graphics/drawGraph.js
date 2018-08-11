@@ -111,7 +111,7 @@ for (let v in nodes) {
 
 //print svg
 console.log(draw.svg());
-fs.writeFile("timesSquare.svg", draw.svg(), function(error){
+fs.writeFile("../temp_images/nicolletIsland.svg", draw.svg(), function(error){
     if (error) return console.log(error);
     console.log("file written!");
 });
