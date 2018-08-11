@@ -42,11 +42,7 @@ overpass('way(44.9454,-93.3000,44.9680,-93.2850);out;', function (error, respons
     return;
   }
   response = JSON.stringify(response, null, 2);
-<<<<<<< HEAD
-  //console.log(response);
-=======
   // console.log(response);
->>>>>>> f79ab80b59f0a8f2871a3bde1c7dc77c02d57384
 });
 
 
