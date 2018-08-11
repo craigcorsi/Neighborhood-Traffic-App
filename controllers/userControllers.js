@@ -20,6 +20,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
+    let newUser = db.userQuery({name:"user", map:{max:"", min:"",long:"45678765",lat:"234"}, img:"base64"})
     db.Article
       .create(req.body)
       .then(dbModel => res.json(dbModel))
