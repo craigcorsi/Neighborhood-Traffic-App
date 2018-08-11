@@ -32,17 +32,13 @@ app.get("*", (req, res) => {
 });
 
 
-
-
-console.log("hello");
-
 overpass('way(44.9454,-93.3000,44.9680,-93.2850);out;', function (error, response) {
   if (error) {
     console.log(error);
     return;
   }
   response = JSON.stringify(response, null, 2);
-  // console.log(response);
+  console.log(response);
 });
 
 
