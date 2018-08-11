@@ -6,33 +6,39 @@ const validate = require("../validate");
 
 //Mongoose query abstractions
 module.exports = {
-  findAll: function(req, res) {
-    db.Article
+  findAllApplets: function(req, res) {
+    db.Applet
       .find(req.query)
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  findById: function(req, res) {
-    db.Article
+  findAppletById: function(req, res) {
+    db.Applet
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  create: function(req, res) {
-    db.Article
+  // findAppletByUser: function(req, res) {
+  //   db.Applet
+  //     .findById(req.params.id)
+  //     .then(dbModel => res.json(dbModel))
+  //     .catch(err => res.status(422).json(err));
+  // },
+  createApplet: function(req, res) {
+    db.Applet
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  update: function(req, res) {
-    db.Article
+  updateApplet: function(req, res) {
+    db.Applet
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  remove: function(req, res) {
-    db.Article
+  removeApplet: function(req, res) {
+    db.Applet
       .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))

@@ -7,21 +7,18 @@ const HeaderNav = props =>
 <Navbar inverse collapseOnSelect>
   <Navbar.Header>
     <Navbar.Brand>
-      <a href="#brand">Home</a>
+      <a href="/">Home</a>
     </Navbar.Brand>
     <Navbar.Toggle />
   </Navbar.Header>
   <Navbar.Collapse>
     <Nav>
-      <NavItem eventKey={1} href="#">
-        Archive
-      </NavItem>
-      <NavItem eventKey={2} href="#">
+      <NavItem eventKey={2} href="/community">
         Community
       </NavItem>
     </Nav>
     <Nav>
-      <NavItem eventKey={1} href="#">
+      <NavItem eventKey={1} href="/about">
         About
       </NavItem>
     </Nav>

@@ -16,9 +16,6 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-app.get("*", (req, res) => { 
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
 
 // Define API routes here
 app.get("/", (req, res) => {
@@ -34,16 +31,16 @@ app.get("*", (req, res) => {
 
 
 
-console.log("hello");
+// console.log("hello");
 
-overpass('way(44.9454,-93.3000,44.9680,-93.2850);out;', function (error, response) {
-  if (error) {
-    console.log(error);
-    return;
-  }
-  response = JSON.stringify(response, null, 2);
-  // console.log(response);
-});
+// overpass('way(44.9454,-93.3000,44.9680,-93.2850);out;', function (error, response) {
+//   if (error) {
+//     console.log(error);
+//     return;
+//   }
+//   response = JSON.stringify(response, null, 2);
+//   // console.log(response);
+// });
 
 
 mongoose.Promise = global.Promise;
