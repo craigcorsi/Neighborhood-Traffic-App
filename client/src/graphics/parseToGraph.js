@@ -6,10 +6,16 @@ var StreetNetwork = require("../math/streetNetwork.js");
 var SandpileCore = require("../math/sandpileCore.js");
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 text = fs.readFileSync("../temp_db/lombardStreet.osm");
 =======
 text = fs.readFileSync("../temp_db/timesSquare.osm");
 >>>>>>> f79ab80b59f0a8f2871a3bde1c7dc77c02d57384
+=======
+const neighborhoodURL = process.argv[2];
+
+text = fs.readFileSync(`../temp_db/osm/${neighborhoodURL}.osm`);
+>>>>>>> 5f712bc803cc752d88cba021d6ab0b61362b817a
 const $ = cheerio.load(text, {
     withDomLvl1: true,
     normalizeWhitespace: true,
@@ -39,7 +45,7 @@ const population = generatePopulation(20);
 
 =======
 const rescaleCoordinates = function(bounds, coords) {
-    console.log(coords["x"], coords["y"], bounds["minlon"], bounds["maxlon"], bounds["minlat"], bounds["maxlat"]);
+    // console.log(coords["x"], coords["y"], bounds["minlon"], bounds["maxlon"], bounds["minlat"], bounds["maxlat"]);
     let newx = 500 * ((coords["x"] - bounds["minlon"]) / (bounds["maxlon"] - bounds["minlon"]));
     newx = Math.max(0, Math.min(500, newx));
     let newy = 500 * ((coords["y"] - bounds["minlat"]) / (bounds["maxlat"] - bounds["minlat"]));
@@ -133,7 +139,16 @@ $('node').each(function(i, element){
 // console.log(intersections);
 var network = new StreetNetwork(intersections, roads);
 var sandpile = new SandpileCore(network, population);
-console.log(JSON.stringify(sandpile, null, 2));
+// console.log(JSON.stringify(sandpile, null, 2));
+
+// The network is the least information needed to recreate the svg file
+let nbdData = JSON.stringify(network);
+
+const target = fs.writeFileSync(`../temp_db/json/${neighborhoodURL}.json`, nbdData, function(error){
+    console.log(error);
+});
+
+console.log("json written!");
 
 module.exports = sandpile;
 >>>>>>> f79ab80b59f0a8f2871a3bde1c7dc77c02d57384
