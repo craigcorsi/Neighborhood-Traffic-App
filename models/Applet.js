@@ -33,4 +33,6 @@ const AppletSchema = new Schema({
   }
 });
 
-module.exports = AppletSchema = mongoose.model('Applet', AppletSchema);
+const Applet = mongoose.model('Applet', AppletSchema);
+
+module.exports = Applet;

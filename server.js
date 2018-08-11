@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
+const routes = require("./routes");
 const app = express();
 const mongoose = require("mongoose");
 
@@ -16,17 +17,19 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+app.use(routes);
 
-// Define API routes here
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
 
-// Send every other request to the React app
-// Define any API routes before this runs
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+// // Define API routes here
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
+
+// // Send every other request to the React app
+// // Define any API routes before this runs
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
 
 
 
@@ -49,7 +52,7 @@ mongoose.connect(
 );
 
 // Start the API server
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, function() {
   console.log(`API Server now listening on PORT ${PORT}...`);
 });

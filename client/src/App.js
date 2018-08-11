@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import React, { Component } from "react";
 import "./App.css";
 // import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -10,6 +9,11 @@ import About from './components/pages/About';
 
 //import Archive from './components/Archive';
 import Footer from './components/Footer';
+
+import API from "./utils/API";
+
+
+
 class App extends Component {
   render() {
     let url = window.location.href;

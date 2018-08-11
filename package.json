@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "auth0-js": "^9.7.3",
+    "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.15.4",

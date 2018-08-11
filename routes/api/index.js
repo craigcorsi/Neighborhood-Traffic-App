@@ -1,6 +1,7 @@
+const path = require("path");
 const express = require("express");
 const router = express.Router();
-const userRoute = require("./users");
+// const userRoute = require("./users");
 const appletRoute = require("./applets");
 
 // Article routes
