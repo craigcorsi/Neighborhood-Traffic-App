@@ -13,6 +13,9 @@ module.exports = function validatePostInput(data) {
   if (Validator.isEmpty(data.text)) {
     errors.text = 'Text field is required';
   }
+  if(!Validator.isLatLong(data.text)){
+    errors.text ='Select right area on the maps'
+  }
 
   return {
     errors,
