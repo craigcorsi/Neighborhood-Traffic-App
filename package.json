@@ -25,7 +25,11 @@
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.15.4",
     "if-env": "^1.0.4",
+<<<<<<< HEAD
     "jwt-decode": "^2.2.0",
+=======
+    "jquery": "^3.3.1",
+>>>>>>> master
     "mongoose": "^5.2.7",
     "query-overpass": "^1.5.3",
     "react-bootstrap": "^0.32.1",
