@@ -1,15 +1,28 @@
-import $ from 'jquery';
 import React from 'react';
 import "./Community.css";
 import { ButtonGroup, Button, FormGroup, InputGroup, FormControl, Grid, Row, Col, Media, Glyphicon } from 'react-bootstrap';
 
+import API from "../../../utils/API";
+
 class Community extends React.Component {
-    componentDidMount() {
-        $(document).ready(function(event){
-            $.ajax();
-            $("#place-applets-here").text("test");
-        });
+    state = {
+        applets: []
     }
+
+    componentDidMount() {
+        this.getApplets();
+    }
+
+    getApplets = () => {
+        API.getApplets()
+            .then(res =>
+                this.setState({
+                    applets: res.data
+                })
+            )
+            .catch(err => console.log(err));
+    };
+
     render() {
         return (
             <Grid>

@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import React, { Component } from "react";
 import "./App.css";
 // import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -14,6 +13,9 @@ import Footer from './components/Footer';
 import Secret from "./components/Secret";
 import NotFound from "./components/NotFound";
 import Callback from "./components/Callback";
+import API from "./utils/API";
+
+
 
 class App extends Component {
   render() {
