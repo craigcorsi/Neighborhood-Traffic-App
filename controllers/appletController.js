@@ -2,7 +2,7 @@
 // This user can be sorted in increasing order
 
 const db = require("../models");
-const validate = require("../validate");
+// const validate = require("../validate");
 
 //Mongoose query abstractions
 module.exports = {
