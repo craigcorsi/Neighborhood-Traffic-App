@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const SEEDS = require('./seeds');
 const Schema = mongoose.Schema;
 
 // Create Schema
@@ -27,7 +28,7 @@ const AppletSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  update_at: {
+  updated_date: {
     type: Date,
     default: Date.now
   }
