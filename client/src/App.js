@@ -10,12 +10,31 @@ import About from './components/pages/About';
 //import Archive from './components/Archive';
 import Footer from './components/Footer';
 
+import Secret from "./components/Secret";
+import NotFound from "./components/NotFound";
+import Callback from "./components/Callback";
 import API from "./utils/API";
 
 
 
 class App extends Component {
   render() {
+    // let mainComponent = ""
+   
+    // switch (this.props.location)
+    //  {
+    //   case "":
+    //       mainComponent = <Main {...this.props} />;
+    //       break;
+    //   case "callback":
+    //       mainComponent = <Callback/>
+    //       break;
+    //   case "secret":
+    //       mainComponent = this.props.auth.isAuthenticated() ? <Secret {...this.props}/>:<NotFound/>;
+    //       break;
+    //   default:
+    //       mainComponent = <NotFound />;
+
     let url = window.location.href;
     url = url.slice(url.lastIndexOf("/") + 1);
     console.log(url);
@@ -41,6 +60,13 @@ class App extends Component {
 
     return (
       <div>
+    {/* //   <Header />
+    
+    //   <Footer />
+    //   <h1 className="App-title">Welcome to the Neighborhood, {this.props.name}.
+    //   </h1>
+    //   {mainComponent}
+    // </div> */}
         <Header />
         {mainComponent}
         <Footer />
