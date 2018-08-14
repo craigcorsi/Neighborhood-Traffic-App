@@ -2,7 +2,10 @@
 // This user can be sorted in increasing order
 
 const db = require("../models");
-const validate = require("../validate");
+// const validate = require("../validate");
+
+// require code to construct the svg file
+const drawSVG = require("../utils/server_graphics/drawSVG");
 
 //Mongoose query abstractions
 module.exports = {
@@ -10,21 +13,23 @@ module.exports = {
     db.Applet
       .find(req.query)
       .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => {
+        res.json(dbModel)
+      })
       .catch(err => res.status(422).json(err));
   },
   findAppletById: function(req, res) {
+    console.log('the request made it this far')
     db.Applet
       .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => {
+        var data = JSON.parse(dbModel.applet_data);
+        var svg = drawSVG(data);
+        // console.log(dbModel);
+        res.json(svg);
+      })
       .catch(err => res.status(422).json(err));
   },
-  // findAppletByUser: function(req, res) {
-  //   db.Applet
-  //     .findById(req.params.id)
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // },
   createApplet: function(req, res) {
     db.Applet
       .create(req.body)
