@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from './components/Header';
 import Main from './components/pages/Main';
 import LandingPage from './components/pages/LandingPage';
@@ -18,77 +18,31 @@ import API from "./utils/API";
 
 
 class App extends Component {
+  state = {
+    currentAppletData: "test"
+  }
+
   render() {
-    // let mainComponent = ""
-   
-    // switch (this.props.location)
-    //  {
-    //   case "":
-    //       mainComponent = <Main {...this.props} />;
-    //       break;
-    //   case "callback":
-    //       mainComponent = <Callback/>
-    //       break;
-    //   case "secret":
-    //       mainComponent = this.props.auth.isAuthenticated() ? <Secret {...this.props}/>:<NotFound/>;
-    //       break;
-    //   default:
-    //       mainComponent = <NotFound />;
-
-    let url = window.location.href;
-    url = url.slice(url.lastIndexOf("/") + 1);
-    console.log(url);
-
-    let mainComponent = "";
-    console.log(this.props);
-    switch (url) {
-      case "":
-        mainComponent = <LandingPage {...this.props} location="" />;
-        break;
-      case "main":
-        mainComponent = <Main {...this.props} location="main" />
-        break;
-      case "community":
-        mainComponent = <Community {...this.props} location="community" />;
-        break;
-      case "about":
-        mainComponent = <About {...this.props} location="about" />;
-        break;
-      default:
-        mainComponent = <LandingPage />;
-    }
 
     return (
-      <div>
-    {/* //   <Header />
-    
-    //   <Footer />
-    //   <h1 className="App-title">Welcome to the Neighborhood, {this.props.name}.
-    //   </h1>
-    //   {mainComponent}
-    // </div> */}
-        <Header />
-        {mainComponent}
-        <Footer />
-      </div>
+      <Router>
+        <div>
+          <h1 className="App-title">Welcome to the Neighborhood, {this.props.name}.</h1>
+          <Header />
+          <Switch>
+            <Route exact path="/" component={LandingPage} />
+            <Route path="/main/:mapId" component={Main} />
+            <Route path="/community" component={Community} />
+            <Route path="/about" component={About} />
+            <Route component={LandingPage} />
+          </Switch>
+          <Footer />
+        </div>
+      </Router>
+
     )
   }
 };
 
 export default App;
 
-// return (
-//   <div>
-//     <Header />
-//     <Main />
-//     <Footer />
-//   </div>
-// )
-
-{/* <Router>
-  <div>
-    <Switch>
-      {mainComponent}
-    </Switch>
-  </div>
-</Router> */}

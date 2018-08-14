@@ -2,9 +2,13 @@ import axios from "axios";
 // import filterParams from "./filterParams";
 
 export default {
-  // Gets articles from the NYT API
+  // Gets all applets
   getApplets: function () {
     return axios.get("/api/v1/applets/all");
+  },
+  // Gets an applet by name
+  getAppletById: function (id) {
+    return axios.get(`/api/v1/applets/id/${id}`);
   },
   // Gets all saved articles
   getSavedApplets: function () {

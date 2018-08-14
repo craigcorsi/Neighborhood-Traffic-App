@@ -2,32 +2,45 @@ import React from 'react';
 import "./Main.css";
 import { ButtonGroup, Button, FormGroup, InputGroup, FormControl, Grid, Row, Col, Media, Glyphicon } from 'react-bootstrap';
 
+import API from "../../../utils/API";
+
+// const drawEngine = require("../../../graphics/drawGraph.js");
+
 class Main extends React.Component {
+    state = {
+        mapId: this.props.match.params.mapId,
+        mapData: ""
+    }
+
+    componentDidMount() {
+        if (this.state.mapId) {
+            this.draw(this.state.mapId);
+        }
+    }
+
+    draw = (id) => {
+        API.getAppletById(id).then(function (response) {
+
+            var network = JSON.parse(response.data.applet_data);
+            console.log(network);
+
+            // var svg = drawEngine.drawGraph(network, 50);
+            // console.log(svg);
+
+        }).catch(function (err) {
+            console.log(err);
+        });
+    }
+
     render() {
+        console.log(this.state);
         return (
             <Grid>
                 <Row>
-                    <Button bsStyle="primary">CREATE NEW MAP</Button>
-                </Row>
-                <br /><br />
-                {/* <Row>
                     <Col xs={12} md={8}>
-                        <FormGroup>
-                            <ButtonGroup>
-                                <Button bsStyle="primary"><Glyphicon glyph="star align-right" />Save</Button>
-                                <Button><Glyphicon glyph="pencil" />Edit</Button>
-                                <Button bsStyle="danger"><Glyphicon glyph="trash" />Delete</Button>
-                            </ButtonGroup>
-                        </FormGroup>
+                        <Button bsStyle="primary">CREATE NEW MAP</Button>
                     </Col>
-                    <Col xs={6} md={4}>
-                        <InputGroup>
-                            <FormControl type="text" placeholder="Enter number between 1 and 100,000" />
-                            <InputGroup.Addon>Populate</InputGroup.Addon>
-                        </InputGroup>
-                    </Col>
-                </Row> */}
-                <br></br>
+                </Row>
                 <Row>
                     <Col xs={12} md={8}>
                         <div>
@@ -38,8 +51,7 @@ class Main extends React.Component {
                 <Row>
                     <Col xs={12} md={8}>
                         <div>
-                            This section will be dynamically populated gif files the user has saved, 
-                            if we have time to implement it...
+                            This section will be dynamically populated with gif files the user has saved.
                         </div>
                     </Col>
                 </Row>

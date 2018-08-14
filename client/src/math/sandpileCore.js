@@ -159,8 +159,8 @@ SandpileCore.prototype.takeOffOverflowAtNode = function (v, threshold) {
     }
 }
 
-SandpileCore.prototype.takeOffOVerflowAtAllNodes = function (threshold) {
-    for (v in this.network.vertices) {
+SandpileCore.prototype.takeOffOverflowAtAllNodes = function (threshold) {
+    for (let v in this.network.vertices) {
         this.takeOffOverflowAtNode(v, threshold);
     }
 }

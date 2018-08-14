@@ -1,16 +1,3 @@
-const fs = require("fs");
-
-// returns a window with a document and an svg root node
-const window   = require('svgdom');
-const SVG      = require('svg.js')(window);
-const document = window.document;
-
-
-
-var StreetNetwork = require("../math/streetNetwork.js");
-var SandpileCore = require("../math/sandpileCore.js");
-var sandpile = require("./parseToGraph.js");
-
 const intersections = {
     "CM1": { "coordinates": [150, 150] },
     "CM2": { "coordinates": [150, 250] },
@@ -46,7 +33,7 @@ var person = {
 function generatePopulation(n) {
     var group = [];
     for (let i = 0; i < n; i++) {
-        group.push({...person, index: i});
+        group.push({ ...person, index: i });
     }
     return group;
 }
@@ -56,64 +43,71 @@ const people = generatePopulation(30);
 
 
 
-// create sandpile core
-// var net1 = new StreetNetwork(intersections, roads);
-// var sandpile1 = new SandpileCore(net1, people);
+export function drawGraph(network, population_size) {
+    const fs = require("fs");
+    // returns a window with a document and an svg root node
+    const window = require('svgdom');
+    const SVG = require('svg.js')(window);
 
-// console.log(JSON.stringify(sandpile1, null, 2));
+    const document = window.document;
 
+    // import SandpileCore class
+    var SandpileCore = require("../math/sandpileCore.js");
 
-
-
-
-
-
-/**
- * 
- * 
- * SVG generation
- * 
- * 
- */
-
- // create svg.js instance
-const draw = SVG(document.documentElement);
-
-// use svg.js as normal
-draw.rect(500,500).fill('#ddd');
-
-// load network from sandpile object
-var ways = sandpile.network.edges;
-var nodes = sandpile.network.vertices;
-
-// draw roads
-
-for (let so in ways) {
-    for (let si in ways[so]) {
-        // var source = ways[e].source;
-        // var sink = ways[e].sink;
-        var coords1 = nodes[so].coordinates;
-        var coords2 = nodes[si].coordinates;
-        var line = draw.line(coords1[0] + 10, coords1[1] + 10, coords2[0] + 10, coords2[1] + 10)
-            .fill("black")
-            .stroke({ width: 5 });
+    // generate population
+    let person = {
+        index: 0,
+        position: null,
+        chanceOfMoving: .1,
+    };
+    const group = [];
+    for (let i = 0; i < population_size; i++) {
+        group.push({ ...person, index: i });
     }
+
+    // generate sandpile
+    var sandpile = new SandpileCore(network, group);
+
+
+
+    // create svg.js instance
+    const draw = SVG(document.documentElement);
+
+    // use svg.js as normal
+    draw.rect(500, 500).fill('#ddd');
+
+    // load network from sandpile object
+    var ways = sandpile.network.edges;
+    var nodes = sandpile.network.vertices;
+
+    /**
+    * 
+    * SVG generation
+    * 
+    */
+
+    // draw roads
+
+    for (let so in ways) {
+        for (let si in ways[so]) {
+            // var source = ways[e].source;
+            // var sink = ways[e].sink;
+            var coords1 = nodes[so].coordinates;
+            var coords2 = nodes[si].coordinates;
+            var line = draw.line(coords1[0] + 10, coords1[1] + 10, coords2[0] + 10, coords2[1] + 10)
+                .fill("black")
+                .stroke({ width: 5 });
+        }
+    }
+
+    // draw intersections on top of roads
+
+    for (let v in nodes) {
+        var symbol = draw.symbol();
+        symbol.rect(20, 20).fill("#f09");
+        var coords = nodes[v].coordinates;
+        var use = draw.use(symbol).move(coords[0], coords[1]);
+    }
+
+    return draw.svg();
 }
-
-// draw intersections on top of roads
-
-for (let v in nodes) {
-    var symbol = draw.symbol();
-    symbol.rect(20,20).fill("#f09");
-    var coords = nodes[v].coordinates;
-    var use = draw.use(symbol).move(coords[0], coords[1]);
-}
-
-//print svg
-console.log(draw.svg());
-fs.writeFile("../temp_images/nicolletIsland.svg", draw.svg(), function(error){
-    if (error) return console.log(error);
-    console.log("file written!");
-});
-
-// console.log(sandpile);

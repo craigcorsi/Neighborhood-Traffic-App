@@ -14,6 +14,7 @@ class Community extends React.Component {
         this.getApplets();
     }
 
+
     getApplets = () => {
         API.getApplets()
             .then(res => {
@@ -28,30 +29,17 @@ class Community extends React.Component {
     render() {
         return (
             <Grid>
-                {/* <Row>
-                    <Col xs={12} md={8}>
-                        <FormGroup>
-                            <ButtonGroup>
-                                <Button bsStyle="primary"><Glyphicon glyph="star align-right" />Save</Button>
-                                <Button><Glyphicon glyph="pencil" />Edit</Button>
-                                <Button bsStyle="danger"><Glyphicon glyph="trash" />Delete</Button>
-                            </ButtonGroup>
-                        </FormGroup>
-                    </Col>
-                    <Col xs={6} md={4}>
-                        <InputGroup>
-                            <FormControl type="text" placeholder="Enter number between 1 and 100,000" />
-                            <InputGroup.Addon>Populate</InputGroup.Addon>
-                        </InputGroup>
-                    </Col>
-                </Row> */}
-                <br></br>
                 <Row>
                     <div className='container' id="place-applets-here">
                         This community page will be dynamically populated with all maps in the database!
-                        {this.state.applets.map(function(datum, i){
-                            // return <AppletOption mapName="map" mapData="" />
-                            return <AppletOption mapName={datum.mapName} mapData={datum.applet_data} key={i}/>
+                        {this.state.applets.map(function (datum, i) {
+                            console.log(this);
+                            return <AppletOption
+                                mapName={datum.mapName}
+                                mapData={datum.applet_data}
+                                mapId={datum._id}
+                                key={i}
+                            />
                         })}
                     </div>
                 </Row>
