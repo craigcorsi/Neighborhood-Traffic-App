@@ -1,8 +1,11 @@
 const express = require("express");
-const path = require("path");
 const bodyParser = require("body-parser");
-const app = express();
 const mongoose = require("mongoose");
+const routes = require("./routes");
+const db = require("./models");
+const app = express();
+const PORT = process.env.PORT || 3001;
+const SEEDS = require('./models/seeds.js');
 
 // Overpass API for retrieving map data
 const overpass = require("query-overpass");
@@ -16,6 +19,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+<<<<<<< HEAD
 app.get("*", (req, res) => { 
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
@@ -40,6 +44,9 @@ overpass('way(44.9454,-93.3000,44.9680,-93.2850);out;', function (error, respons
   response = JSON.stringify(response, null, 2);
   console.log(response);
 });
+=======
+app.use(routes);
+>>>>>>> 5d4435c920416bfe7d57136b1de9a4292519f990
 
 
 mongoose.Promise = global.Promise;
@@ -47,8 +54,10 @@ mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/Neighborhood-Traffic-db",
 );
 
+
+
+
 // Start the API server
-const PORT = process.env.PORT || 3001;
 app.listen(PORT, function() {
   console.log(`API Server now listening on PORT ${PORT}...`);
 });
