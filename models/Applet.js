@@ -36,4 +36,21 @@ const AppletSchema = new Schema({
 
 const Applet = mongoose.model('Applet', AppletSchema);
 
+Applet.remove({}).catch(function(err){
+  console.log(err);
+});
+
+
+// seed database
+for (let i = 0; i < SEEDS.length; i++) {
+  Applet.create(SEEDS[i]).then(function(new_applet){
+    console.log(`database entry ${i} has been made!`);
+  }).catch(function(err){
+    console.log(`an error has occurred`);
+    if (i == SEEDS.length - 1) {
+      console.log(err);
+    }
+  });
+}
+
 module.exports = Applet;

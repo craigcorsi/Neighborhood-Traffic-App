@@ -1,0 +1,12 @@
+.databaseApplet {
+    height: 75px;
+    width: 100%;
+
+    background-color: #222;
+    color: #222;
+
+    margin: 15px;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 15px;
+}

@@ -19,12 +19,12 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  // findAppletByUser: function(req, res) {
-  //   db.Applet
-  //     .findById(req.params.id)
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // },
+  findAppletByUser: function(req, res) {
+    db.Applet
+      .findById(req.params.id)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   createApplet: function(req, res) {
     db.Applet
       .create(req.body)
