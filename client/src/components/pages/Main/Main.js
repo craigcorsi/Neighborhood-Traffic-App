@@ -9,23 +9,35 @@ import API from "../../../utils/API";
 class Main extends React.Component {
     state = {
         mapId: this.props.match.params.mapId,
-        mapData: ""
+        mapData: "",
+        parser: new DOMParser(),
+        svg: ""
     }
+
+    // {this.state.parser.parseFromString(this.state.svg, "image/svg+xml")}
 
     componentDidMount() {
         if (this.state.mapId) {
-            this.draw(this.state.mapId);
+            const applet = this.draw(this.state.mapId, function (svg) {
+                this.setState({
+                    svg: svg
+                });
+            }.bind(this));
         }
     }
 
-    draw = (id) => {
+    embedSVG (svg) {
+        return {
+            __html: svg
+        }
+    }
+
+    draw = (id, cb) => {
         API.getAppletById(id).then(function (response) {
 
-            var network = JSON.parse(response.data.applet_data);
-            console.log(network);
-
-            // var svg = drawEngine.drawGraph(network, 50);
-            // console.log(svg);
+            console.log(response.data);
+            var svg = response.data;
+            cb(svg);
 
         }).catch(function (err) {
             console.log(err);
@@ -50,9 +62,7 @@ class Main extends React.Component {
                 </Row>
                 <Row>
                     <Col xs={12} md={8}>
-                        <div>
-                            This section will be dynamically populated with gif files the user has saved.
-                        </div>
+                        <div dangerouslySetInnerHTML={this.embedSVG(this.state.svg)}></div>
                     </Col>
                 </Row>
             </Grid>

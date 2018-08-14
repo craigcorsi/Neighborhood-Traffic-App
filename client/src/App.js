@@ -7,14 +7,13 @@ import LandingPage from './components/pages/LandingPage';
 import Community from './components/pages/Community';
 import About from './components/pages/About';
 
-//import Archive from './components/Archive';
+// import Archive from './components/Archive';
 import Footer from './components/Footer';
 
 import Secret from "./components/Secret";
 import NotFound from "./components/NotFound";
 import Callback from "./components/Callback";
 import API from "./utils/API";
-
 
 
 class App extends Component {
