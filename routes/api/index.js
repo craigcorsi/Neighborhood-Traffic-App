@@ -5,7 +5,7 @@ const router = express.Router();
 const appletRoute = require("./applets");
 
 // Article routes
-router.use("/api/v1/", appletRoute);
+router.use("/applets", appletRoute);
 
 // If no API routes are hit, send the React app
 router.use((req, res) =>

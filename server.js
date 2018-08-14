@@ -2,8 +2,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
+const db = require("./models");
 const app = express();
 const PORT = process.env.PORT || 3001;
+const SEEDS = require('./models/seeds.js');
 
 // Overpass API for retrieving map data
 const overpass = require("query-overpass");
@@ -24,6 +26,9 @@ mongoose.Promise = global.Promise;
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/Neighborhood-Traffic-db",
 );
+
+
+
 
 // Start the API server
 app.listen(PORT, function() {
