@@ -14,12 +14,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findAppletById: function(req, res) {
-    db.Applet
-      .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  findAppletByUser: function(req, res) {
+    console.log('the request made it this far')
     db.Applet
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
