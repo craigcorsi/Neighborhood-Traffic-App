@@ -19,20 +19,9 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-<<<<<<< HEAD:controllers/userControllers.js
   create: function(req, res) {
     let newUser = db.userQuery({name:"user", map:{max:"", min:"",long:"45678765",lat:"234"}, img:"base64"})
     db.Article
-=======
-  // findAppletByUser: function(req, res) {
-  //   db.Applet
-  //     .findById(req.params.id)
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // },
-  createApplet: function(req, res) {
-    db.Applet
->>>>>>> 5f712bc803cc752d88cba021d6ab0b61362b817a:controllers/appletController.js
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

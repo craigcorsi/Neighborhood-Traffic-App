@@ -26,7 +26,15 @@ class LandingPage extends React.Component {
                 <br></br>
                 <Row>
                     <div className='container'>
-                        <p>This is the landing page! The login button will be contained somewhere here.</p>
+                        <p>Please Enter your name and email address to use the app</p>
+                        <label>Name:
+                            <input type="text" />  
+                        </label>
+                        <br/>
+                        <label>Email:
+                            <input type="text" />  
+                        </label>
+                        
                     </div>
                 </Row>
             </Grid>
