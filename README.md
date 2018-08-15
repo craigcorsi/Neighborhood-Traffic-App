@@ -27,6 +27,7 @@ Courtesy of R.M. Dimeo; the color of a pixel records the number of 'topples' tha
 - React-dom
 - React-router-dom
 - React-scripts
+- Express
 - Body-parser
 - Mongoose
 - Svgjs
