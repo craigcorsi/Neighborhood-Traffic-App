@@ -5,9 +5,17 @@ const cheerio = require('cheerio');
 var StreetNetwork = require("../math/streetNetwork.js");
 var SandpileCore = require("../math/sandpileCore.js");
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+text = fs.readFileSync("../temp_db/lombardStreet.osm");
+=======
+text = fs.readFileSync("../temp_db/timesSquare.osm");
+>>>>>>> f79ab80b59f0a8f2871a3bde1c7dc77c02d57384
+=======
 const neighborhoodURL = process.argv[2];
 
 text = fs.readFileSync(`../temp_db/osm/${neighborhoodURL}.osm`);
+>>>>>>> 5f712bc803cc752d88cba021d6ab0b61362b817a
 const $ = cheerio.load(text, {
     withDomLvl1: true,
     normalizeWhitespace: true,
@@ -33,6 +41,9 @@ function generatePopulation(n) {
 }
 const population = generatePopulation(20);
 
+<<<<<<< HEAD
+
+=======
 const rescaleCoordinates = function(bounds, coords) {
     // console.log(coords["x"], coords["y"], bounds["minlon"], bounds["maxlon"], bounds["minlat"], bounds["maxlat"]);
     let newx = 500 * ((coords["x"] - bounds["minlon"]) / (bounds["maxlon"] - bounds["minlon"]));
@@ -42,6 +53,7 @@ const rescaleCoordinates = function(bounds, coords) {
     newy = 500 - newy;
     return [newx, newy];
 }
+>>>>>>> f79ab80b59f0a8f2871a3bde1c7dc77c02d57384
 
 // $('node').each(function(i, element){
 //     intersections[`n-${$(this).attr("id")}`] = {
@@ -49,6 +61,23 @@ const rescaleCoordinates = function(bounds, coords) {
 //     };
 // });
 
+<<<<<<< HEAD
+let counter = 0;
+
+$('way').each(function(i, element){
+    let isRoad = false;
+
+    $('tag').each(function(j, elt){
+        if ($(this).attr('k') == 'highway') {
+            counter++;
+        }
+    });
+});
+
+console.log(counter);
+
+// console.log(intersections);
+=======
 var bounds;
 
 $('bounds').each(function(i, element){
@@ -122,3 +151,4 @@ const target = fs.writeFileSync(`../temp_db/json/${neighborhoodURL}.json`, nbdDa
 console.log("json written!");
 
 module.exports = sandpile;
+>>>>>>> f79ab80b59f0a8f2871a3bde1c7dc77c02d57384
