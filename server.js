@@ -19,42 +19,13 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-<<<<<<< HEAD
-app.get("*", (req, res) => { 
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
-
-// Define API routes here
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
-
-// Send every other request to the React app
-// Define any API routes before this runs
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
-
-
-overpass('way(44.9454,-93.3000,44.9680,-93.2850);out;', function (error, response) {
-  if (error) {
-    console.log(error);
-    return;
-  }
-  response = JSON.stringify(response, null, 2);
-  console.log(response);
-});
-=======
 app.use(routes);
->>>>>>> 5d4435c920416bfe7d57136b1de9a4292519f990
 
 
 mongoose.Promise = global.Promise;
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/Neighborhood-Traffic-db",
 );
-
-
 
 
 // Start the API server

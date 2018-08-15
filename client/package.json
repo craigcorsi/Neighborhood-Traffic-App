@@ -3,16 +3,13 @@
   "version": "0.1.0",
   "description": "Mern Demo",
   "private": true,
-  "proxy": "http://localhost:3001/",
+  "proxy": "http://localhost:3000/",
   "dependencies": {
-<<<<<<< HEAD
-    "jquery": "^3.3.1",
-=======
     "fs": "^0.0.1-security",
->>>>>>> master
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-scripts": "1.0.14",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^1.1.4",
     "svg.js": "^2.6.5",
     "svgdom": "^0.0.15",
     "svgjs": "^2.6.2"
