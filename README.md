@@ -22,6 +22,15 @@ source: https://nbviewer.jupyter.org/github/eflegara/BTW-Sandpile-Model/blob/mas
 
 Courtesy of R.M. Dimeo; the color of a pixel records the number of 'topples' that have taken place at that location, so each avalanche "heats up" the area it covers.
 
+# Technologies utilized:
+
+
+ ![](http://http://williamavasquez.herokuapp.com/img/react.png) 
+ ![](http://williamavasquez.herokuapp.com/img/mongo.png)
+ ![](http://williamavasquez.herokuapp.com/img/node.png)
+ ![](http://williamavasquez.herokuapp.com/img/js.png)
+ ![](https://github.com/heroku/favicon/blob/master/favicon.iconset/icon_32x32.png)
+
 # Node packages included:
 - React
 - React-dom
