@@ -2,7 +2,7 @@
 
 # :octocat: Dev Team: 
 
-* [Craig](https://github/com/craigcorsi)
+* [Craig](https://github.com/craigcorsi)
 * [Sean](https://github.com/shudson123)
 * [Phillip](https://github.com/powusu6128)
 * [Stacey](https://github.com/tsstace)
