@@ -24,6 +24,11 @@ Courtesy of R.M. Dimeo; the color of a pixel records the number of 'topples' tha
 
 # Technologies utilized:
 
+- React
+- MongoDB
+- Node
+- Javascript
+- Heroku
 
  ![](http://http://williamavasquez.herokuapp.com/img/react.png) 
  ![](http://williamavasquez.herokuapp.com/img/mongo.png)
