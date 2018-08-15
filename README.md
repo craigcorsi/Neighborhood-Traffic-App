@@ -26,7 +26,7 @@ Courtesy of R.M. Dimeo; the color of a pixel records the number of 'topples' tha
 
 - React
 - MongoDB
-- Node
+- NodeJS
 - Javascript
 - Heroku
 
@@ -70,4 +70,4 @@ After both installations complete, run the following command in your terminal:
 yarn start
 ```
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
+Your app should now be running on <http://localhost:3001>. The Express server should intercept any AJAX requests from the client.
