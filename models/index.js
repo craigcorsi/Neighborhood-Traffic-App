@@ -1,3 +1,5 @@
 module.exports = {
-    Applet: require("./Applet")
+    Applet: require("./Applet"),
+    user: require("./user")
+
 };
