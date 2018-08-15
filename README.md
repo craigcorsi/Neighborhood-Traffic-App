@@ -1,11 +1,11 @@
 ![Logo](./client/src/images/NTAlogo.png) A MERN application that renders a cross section of street data as interactive applets, utilizing the abelian sandpile model to study traffic flow and crowd behavior in a given neighborhood.  
 
-# :octocat: Dev Team: 
+# Dev Team: 
 
-* [Craig](https://github.com/craigcorsi)
-* [Sean](https://github.com/shudson123)
-* [Phillip](https://github.com/powusu6128)
-* [Stacey](https://github.com/tsstace)
+- :octocat: [Craig](https://github.com/craigcorsi)
+- :octocat: [Sean](https://github.com/shudson123)
+- :octocat: [Phillip](https://github.com/powusu6128)
+- :octocat: [Stacey](https://github.com/tsstace)
 
 
 # About Abelian Sandpiles:
