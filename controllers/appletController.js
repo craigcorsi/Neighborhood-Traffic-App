@@ -30,14 +30,9 @@ module.exports = {
       })
       .catch(err => res.status(422).json(err));
   },
-<<<<<<< HEAD:controllers/userControllers.js
-  create: function(req, res) {
+  createApplet: function(req, res) {
       user = db.userQuery({user:"Philip", map:{max:"2",min:"23344",long:"345678909876543",lat:"56789087"},pic:"base64,"});
     db.Article
-=======
-  createApplet: function(req, res) {
-    db.Applet
->>>>>>> 5d4435c920416bfe7d57136b1de9a4292519f990:controllers/appletController.js
       .create(req.body)
       .then(dbModel => res.json(user))
       .catch(err => res.status(422).json(err));
