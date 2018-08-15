@@ -1,4 +1,12 @@
-![Logo](./client/src/images/NTAlogo.png) A MERN application that renders a cross section of street data as interactive applets, utilizing the abelian sandpile model to study traffic flow and crowd behavior in a given neighborhood.  
+![Logo](./client/src/images/NTAlogo.png) A MERN application that renders a cross section of street data as interactive applets, utilizing the abelian sandpile model to study traffic flow and crowd behavior in a given neighborhood.  Examine locations as unique as Lombard Street in San Francisco and Notting Hill in West London before you peruse areas a little closer to home such as Lyn/Lake, Calhoun Square and downtown Saint Paul.  What are abelian sandpiles and what can they teach us about patterns that emerge over time?  Please keep reading to learn more about this fascinating topic!  
+
+# Dev Team: 
+
+- :octocat: [Craig](https://github.com/craigcorsi)
+- :octocat: [Sean](https://github.com/shudson123)
+- :octocat: [Phillip](https://github.com/powusu6128)
+- :octocat: [Stacey](https://github.com/tsstace)
+
 
 # About Abelian Sandpiles:
 
@@ -13,6 +21,30 @@ source: https://nbviewer.jupyter.org/github/eflegara/BTW-Sandpile-Model/blob/mas
 [![Avalanche Dynamics](https://img.youtube.com/vi/zHoiZtyA82E/0.jpg)](https://www.youtube.com/watch?v=zHoiZtyA82E)
 
 Courtesy of R.M. Dimeo; the color of a pixel records the number of 'topples' that have taken place at that location, so each avalanche "heats up" the area it covers.
+
+# Technologies utilized:
+
+- React
+- MongoDB
+- NodeJS
+- Javascript
+- Heroku
+
+ ![](http://williamavasquez.herokuapp.com/img/react.png) 
+ ![](http://williamavasquez.herokuapp.com/img/mongo.png)
+ ![](http://williamavasquez.herokuapp.com/img/node.png)
+ ![](http://williamavasquez.herokuapp.com/img/js.png)
+ ![](https://github.com/heroku/favicon/blob/master/favicon.iconset/icon_32x32.png)
+
+# Node packages included:
+- React
+- React-dom
+- React-router-dom
+- React-scripts
+- Express
+- Body-parser
+- Mongoose
+- Svgjs
 
 # Create React Express App
 
@@ -38,4 +70,4 @@ After both installations complete, run the following command in your terminal:
 yarn start
 ```
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
+Your app should now be running on <http://localhost:3001>. The Express server should intercept any AJAX requests from the client.
