@@ -6,27 +6,11 @@ const SVG = require('svg.js')(window);
 const document = window.document;
 
 
-
 // var StreetNetwork = require("../server_math/streetNetwork.js");
 var SandpileCore = require("../server_math/sandpileCore.js");
 
 function drawSVG(network) {
-    // generate population
-    var person = {
-        index: 0,
-        position: null,
-        chanceOfMoving: .1,
-    };
-    function generatePopulation(n) {
-        var group = [];
-        for (let i = 0; i < n; i++) {
-            group.push({ ...person, index: i });
-        }
-        return group;
-    }
-    const people = generatePopulation(30);
-
-    var sandpile = new SandpileCore(network, people);
+    var sandpile = new SandpileCore(network);
 
     console.log("how about this far?");
 
@@ -64,11 +48,22 @@ function drawSVG(network) {
 
     // draw intersections on top of roads
 
+    console.log('test1');
+
     for (let v in nodes) {
         var symbol = draw.symbol();
-        symbol.rect(10,10).fill("#c81");
+            var od = nodes[v]["out-degree"];
+            var pop = nodes[v]["inhabitants"].length;
+            console.log("test2")
+            // color is RED if there are too many people at one vertex, otherwise somewhere between blue and brown
+            var red = (pop >= od) ? 255 : Math.round(150 * ((pop + 1) / (od + 1)));
+            var green = (pop >= od) ? 0 : 100;
+            var blue = (pop >= od) ? 0 : Math.round(255 - 255 * ((pop + 1) / (od + 1)));
+        symbol.rect(10,10)
+            .fill(`rgb(${red}, ${green}, ${blue})`);
         var coords = nodes[v].coordinates;
         var use = draw.use(symbol).move(coords[0], coords[1]);
+        // console.log(`a graph node was created with value rgb(${red}, ${green}, ${blue})`)
     }
 
     //print svg
@@ -79,52 +74,9 @@ function drawSVG(network) {
 
 module.exports = drawSVG;
 
+// rgb(0, 100, 255) is unpopulated
+// rgb(150, 100, 0) is more populated
+// rgb(255, 0, 0) is overpopulated
 
-
-/**
- * 
- * 
- * SVG generation
- * 
- * 
- */
-
-// // create svg.js instance
-// const draw = SVG(document.documentElement);
-
-// // use svg.js as normal
-// draw.rect(500, 500).fill('#ddd');
-
-// // load network from sandpile object
-// var ways = sandpile.network.edges;
-// var nodes = sandpile.network.vertices;
-
-// // draw roads
-
-// for (let so in ways) {
-//     for (let si in ways[so]) {
-//         // var source = ways[e].source;
-//         // var sink = ways[e].sink;
-//         var coords1 = nodes[so].coordinates;
-//         var coords2 = nodes[si].coordinates;
-//         var line = draw.line(coords1[0] + 10, coords1[1] + 10, coords2[0] + 10, coords2[1] + 10)
-//             .fill("black")
-//             .stroke({ width: 5 });
-//     }
-// }
-
-// // draw intersections on top of roads
-
-// for (let v in nodes) {
-//     var symbol = draw.symbol();
-//     symbol.rect(20, 20).fill("#f09");
-//     var coords = nodes[v].coordinates;
-//     var use = draw.use(symbol).move(coords[0], coords[1]);
-// }
-
-// //print svg
-// console.log(draw.svg());
-// fs.writeFile("../temp_images/nicolletIsland.svg", draw.svg(), function (error) {
-//     if (error) return console.log(error);
-//     console.log("file written!");
-// });
+// If the capacity is c and the number of people is d, then
+// color should by rgb(150, 200 - 100*d/(c-1), 255 - 255*d/(c-1)) if d < c and rgb(255, 0, 0) if d > c-1

@@ -20,15 +20,17 @@ class Main extends React.Component {
         const script = document.createElement("script");
         script.innerHTML = `
         
-        var placeholderStorageForActiveNode;
+        var rectID, placeholderStorageForActiveNode;
         document.addEventListener("click", function(event){
             var target = event.target || event.srcElement
 
+            // When a node is clicked, remove outline from the previous clicked node
             if (placeholderStorageForActiveNode && target.tagName == "use") {
                 var rect = document.getElementById(rectID);
                 rect.setAttribute("style", "stroke-width:0px");
             }
 
+            // When a node is clicked, outline the target in black
             if (target.tagName == "use") {
                 var useID = target.getAttribute("id").slice(8);
                 useID = parseInt(useID);

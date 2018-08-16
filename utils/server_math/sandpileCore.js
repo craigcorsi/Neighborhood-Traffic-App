@@ -1,10 +1,12 @@
 const StreetNetwork = require("./streetNetwork.js");
 
 class SandpileCore {
-    constructor(network, population) {
+    constructor(network) {
         this.network = network;
         this.population = [];
-        this.populate(this.network.numberOfVertices);
+
+        // the population equals the number of vertices
+        this.populate(Math.round(this.network.numberOfVertices / 10));
         this.assignNodesRandomly();
     }
 }
