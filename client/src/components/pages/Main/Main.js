@@ -22,6 +22,7 @@ class Main extends React.Component {
         
         var useID, rectID, netX, netY, netref, placeholderStorageForActiveNode;
         var presence, capacity;
+
         document.addEventListener("click", function(event){
             var target = event.target || event.srcElement
             console.log(target);
@@ -77,6 +78,10 @@ class Main extends React.Component {
                 document.getElementById(rectID).setAttribute("fill", "rgb(" + red + "," + green + "," + blue + ")");
 
                 console.log(presence, capacity);
+
+                // Update total number of people
+                var total = document.getElementById('totalNumberOfInhabitants').innerText;
+                document.getElementById('totalNumberOfInhabitants').innerText = parseInt(total) + 1;
             }
 
             if (target.tagName == "BUTTON" 
@@ -138,6 +143,9 @@ class Main extends React.Component {
 
                 window.currentNetwork = data.data;
                 window.currentImage = data.svg;
+
+                document.getElementById('totalNumberOfInhabitants').innerText
+                    = window.currentNetwork.population.length;
 
             }.bind(this));
         }
