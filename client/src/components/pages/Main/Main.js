@@ -35,6 +35,11 @@ class Main extends React.Component {
 
             // When a node is clicked, outline the target in black
             if (target.tagName == "use") {
+
+                // enable buttons
+                document.getElementById("consoleAddPerson").removeAttribute("disabled");
+                document.getElementById("consoleDecongest").removeAttribute("disabled");
+
                 useID = target.getAttribute("id").slice(8);
                 useID = parseInt(useID);
                 rectID = (useID - 1).toString();
@@ -206,8 +211,8 @@ class Main extends React.Component {
                                 <p>Number of people at selected vertex: <span id="numberAtSelected">None</span></p>
                                 <FormGroup>
                                     <ButtonGroup>
-                                        <Button id="consoleAddPerson">Add Person</Button>
-                                        <Button id="consoleDecongest">De-Congest</Button>
+                                        <Button id="consoleAddPerson" disabled>Add Person</Button>
+                                        <Button id="consoleDecongest" disabled>De-Congest</Button>
                                     </ButtonGroup>
                                 </FormGroup>
                             </div>
