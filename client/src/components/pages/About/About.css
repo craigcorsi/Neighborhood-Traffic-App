@@ -1,3 +1,16 @@
 * {
     color: white;
 }
+
+.about-this-project {
+    border: 1px solid black;
+    background-color: #444;
+}
+
+h2, h3 {
+    text-align: center;
+}
+
+.about-this-project a {
+    color: #ace
+}
