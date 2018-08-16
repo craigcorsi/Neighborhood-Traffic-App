@@ -76,9 +76,54 @@ class Main extends React.Component {
                 var blue = (presence >= capacity) ? 0 : Math.round(255 - 255 * ((presence + 1) / (capacity + 1)));
                 document.getElementById(rectID).setAttribute("fill", "rgb(" + red + "," + green + "," + blue + ")");
 
-
                 console.log(presence, capacity);
             }
+
+            if (target.tagName == "BUTTON" 
+                && target.getAttribute("id") == "consoleDecongest"
+                && presence >= capacity) {
+                
+                // STEP ONE: REMOVE PEOPLE FROM TARGETED NODE
+                presence -= capacity;
+                document.getElementById('numberAtSelected').innerText = 
+                        '' + presence + ' / ' + capacity;
+                for (let j=0; j < capacity; j++) {
+                    window.currentNetwork.network.vertices[netref]['inhabitants'].pop();
+                }
+
+                // update color
+                var red = (presence >= capacity) ? 255 : Math.round(150 * ((presence + 1) / (capacity + 1)));
+                var green = (presence >= capacity) ? 0 : 100;
+                var blue = (presence >= capacity) ? 0 : Math.round(255 - 255 * ((presence + 1) / (capacity + 1)));
+                document.getElementById(rectID).setAttribute("fill", "rgb(" + red + "," + green + "," + blue + ")");
+
+                // STEP TWO: ADD A PERSON TO EACH NEIGHBORING NODE
+                var neighbors = Object.keys(window.currentNetwork.network.edges[netref]);
+
+                // These are the ids we want to target in the svg file
+                var neighborElements = neighbors.map(function(n){
+                    var symbolID = window.currentNetwork.network.vertices[n].svgjsID;
+                    symbolNID = parseInt(symbolID.slice(11)) + 1;
+                    rectNID = "SvgjsRect" + symbolNID;
+                    return rectNID;
+                });
+                console.log(neighbors);
+                console.log(neighborElements);
+
+                for (let k=0; k < neighborElements.length; k++) {
+                    window.currentNetwork.network.vertices[neighbors[k]]['inhabitants'].push("new person");
+
+                    // update color
+                    var neighborPresence = window.currentNetwork.network.vertices[neighbors[k]]['inhabitants'].length;;
+                    var neighborCapacity = window.currentNetwork.network.vertices[neighbors[k]]['out-degree'];
+                    var red = (neighborPresence >= neighborCapacity) ? 255 : Math.round(150 * ((neighborPresence + 1) / (neighborCapacity + 1)));
+                    var green = (neighborPresence >= neighborCapacity) ? 0 : 100;
+                    var blue = (neighborPresence >= neighborCapacity) ? 0 : Math.round(255 - 255 * ((neighborPresence + 1) / (neighborCapacity + 1)));
+                    console.log("rgb(" + red + "," + green + "," + blue + ")");
+                    document.getElementById(neighborElements[k]).setAttribute("fill", "rgb(" + red + "," + green + "," + blue + ")");
+                }
+
+            };
         })
         
         `;
@@ -130,7 +175,7 @@ class Main extends React.Component {
                             <h2>Instructions</h2>
                             <p>
                                 This map has been populated with a population of size proportional to the number
-                                of nodes. Bluer nodes contain fewer people while grayer / browner nodes contain more.
+                                of nodes. Bluer nodes contain fewer people while browner nodes contain more.
                                 Click a node to select it, then click "Add Person" to increase the population there.
                             </p>
 
@@ -153,8 +198,8 @@ class Main extends React.Component {
                                 <p>Number of people at selected vertex: <span id="numberAtSelected">None</span></p>
                                 <FormGroup>
                                     <ButtonGroup>
-                                        <Button onClick={this.addPersonAtSelectedVertex} id="consoleAddPerson">Add Person</Button>
-                                        <Button onClick={this.addPersonAtSelectedVertex}>De-Congest</Button>
+                                        <Button id="consoleAddPerson">Add Person</Button>
+                                        <Button id="consoleDecongest">De-Congest</Button>
                                     </ButtonGroup>
                                 </FormGroup>
                             </div>

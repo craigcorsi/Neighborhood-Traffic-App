@@ -62,6 +62,8 @@ function drawSVG(network) {
         var use = draw.use(symbol)
         .attr("netref", v)
         .move(coords[0], coords[1]);
+
+        sandpile.network.vertices[v].svgjsID = symbol.attr("id");
         // console.log(`a graph node was created with value rgb(${red}, ${green}, ${blue})`)
     }
 
