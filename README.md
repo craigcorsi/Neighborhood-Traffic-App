@@ -4,7 +4,7 @@
 
 - :octocat: [Craig](https://github.com/craigcorsi)
 - :octocat: [Sean](https://github.com/shudson123)
-- :octocat: [Phillip](https://github.com/powusu6128)
+- :octocat: [Philip](https://github.com/powusu6128)
 - :octocat: [Stacey](https://github.com/tsstace)
 
 
