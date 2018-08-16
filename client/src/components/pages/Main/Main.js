@@ -17,6 +17,30 @@ class Main extends React.Component {
     // {this.state.parser.parseFromString(this.state.svg, "image/svg+xml")}
 
     componentDidMount() {
+        const script = document.createElement("script");
+        script.innerHTML = `
+        
+        var circs = document.getElementsByClassName("ci");
+        document.addEventListener("click", function(event){
+            var target = event.target || event.srcElement
+            console.log(target);
+            console.log(target.tagName);
+
+            if (target.tagName == "use") {
+                var useID = target.getAttribute("id").slice(8);
+                useID = parseInt(useID);
+                circleID = (useID - 1).toString();
+                circleID = "SvgjsCircle" + circleID;
+                console.log(useID, circleID)
+                var circle = document.getElementById(circleID);
+                circle.setAttribute("fill", "#ffff00");
+            }
+        })
+        
+        `;
+        script.async = true;
+        document.body.appendChild(script);
+        
         if (this.state.mapId) {
             const applet = this.draw(this.state.mapId, function (svg) {
                 this.setState({
