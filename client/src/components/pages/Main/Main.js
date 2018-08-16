@@ -20,9 +20,11 @@ class Main extends React.Component {
         const script = document.createElement("script");
         script.innerHTML = `
         
-        var rectID, placeholderStorageForActiveNode;
+        var useID, rectID, netX, netY, netref, placeholderStorageForActiveNode;
+        var presence, capacity;
         document.addEventListener("click", function(event){
             var target = event.target || event.srcElement
+            console.log(target);
 
             // When a node is clicked, remove outline from the previous clicked node
             if (placeholderStorageForActiveNode && target.tagName == "use") {
@@ -32,14 +34,14 @@ class Main extends React.Component {
 
             // When a node is clicked, outline the target in black
             if (target.tagName == "use") {
-                var useID = target.getAttribute("id").slice(8);
+                useID = target.getAttribute("id").slice(8);
                 useID = parseInt(useID);
                 rectID = (useID - 1).toString();
                 rectID = "SvgjsRect" + rectID;
 
-                var netX = parseFloat(target.getAttribute("x")).toFixed(2);
-                var netY = parseFloat(target.getAttribute("y")).toFixed(2);
-                var netref = target.getAttribute("netref");
+                netX = parseFloat(target.getAttribute("x")).toFixed(2);
+                netY = parseFloat(target.getAttribute("y")).toFixed(2);
+                netref = target.getAttribute("netref");
                 console.log(netX, netY, netref);
 
                 // find relative coordinates of node
@@ -47,8 +49,8 @@ class Main extends React.Component {
                         'x = ' + netX + ', y = ' + netY;
                 
                 // find number of people at node
-                var capacity = window.currentNetwork.network.vertices[netref]['out-degree']
-                var presence = window.currentNetwork.network.vertices[netref]['inhabitants'].length;
+                capacity = window.currentNetwork.network.vertices[netref]['out-degree']
+                presence = window.currentNetwork.network.vertices[netref]['inhabitants'].length;
                 console.log(presence, capacity);
                 document.getElementById('numberAtSelected').innerText = 
                         '' + presence + ' / ' + capacity;
@@ -60,6 +62,22 @@ class Main extends React.Component {
                 var rect = document.getElementById(rectID);
                 rect.setAttribute("style", "stroke:black;stroke-width;3px");
                 // rect.setAttribute("fill", "#ffff00");
+            }
+
+            if (target.tagName == "BUTTON" && target.getAttribute("id") == "consoleAddPerson") {
+                presence++;
+                document.getElementById('numberAtSelected').innerText = 
+                        '' + presence + ' / ' + capacity;
+                window.currentNetwork.network.vertices[netref]['inhabitants'].push("new person");
+
+                // update color
+                var red = (presence >= capacity) ? 255 : Math.round(150 * ((presence + 1) / (capacity + 1)));
+                var green = (presence >= capacity) ? 0 : 100;
+                var blue = (presence >= capacity) ? 0 : Math.round(255 - 255 * ((presence + 1) / (capacity + 1)));
+                document.getElementById(rectID).setAttribute("fill", "rgb(" + red + "," + green + "," + blue + ")");
+
+
+                console.log(presence, capacity);
             }
         })
         
@@ -109,13 +127,13 @@ class Main extends React.Component {
                 <Row>
                     <Col xs={12}>
                         <div className="appletInstructions">
-                        <h2>Instructions</h2>
+                            <h2>Instructions</h2>
                             <p>
-                                This map has been populated with a population of size proportional to the number 
+                                This map has been populated with a population of size proportional to the number
                                 of nodes. Bluer nodes contain fewer people while grayer / browner nodes contain more.
-                                Click a node to select it, then click "Add Person" to increase the population there. 
+                                Click a node to select it, then click "Add Person" to increase the population there.
                             </p>
-                                
+
                             <p>
                                 A node becomes red once it has as many people as the number of neighboring nodes, or more.
                                 Selecting a red node then clicking "De-Congest" will move one person at the node to each of the
@@ -135,7 +153,7 @@ class Main extends React.Component {
                                 <p>Number of people at selected vertex: <span id="numberAtSelected">None</span></p>
                                 <FormGroup>
                                     <ButtonGroup>
-                                        <Button onClick={this.addPersonAtSelectedVertex}>Add Person</Button>
+                                        <Button onClick={this.addPersonAtSelectedVertex} id="consoleAddPerson">Add Person</Button>
                                         <Button onClick={this.addPersonAtSelectedVertex}>De-Congest</Button>
                                     </ButtonGroup>
                                 </FormGroup>

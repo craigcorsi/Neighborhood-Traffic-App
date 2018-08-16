@@ -19,11 +19,11 @@ export class AppletOption extends React.Component {
         return (
             <div className='container'>
                 <div className="databaseApplet">
-                    <p>Map description: {this.state.description}</p>
+                    <p>{this.state.description}</p>
                     
                     <form action={this.state.urlRedirect}>
                         <button className={"databaseAppletButton"} >
-                            Load This Applet
+                            Load This Map
                         </button>
                     </form>
                 </div>

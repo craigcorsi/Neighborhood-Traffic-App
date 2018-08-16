@@ -6,7 +6,7 @@ class SandpileCore {
         this.population = [];
 
         // the population equals the number of vertices
-        this.populate(Math.round(this.network.numberOfVertices / 10));
+        this.populate(Math.round(this.network.numberOfVertices / 2));
         this.assignNodesRandomly();
     }
 }

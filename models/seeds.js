@@ -1,6 +1,7 @@
 const locations = [
     "bostonFinancialDistrict",
     "calhounSquare",
+    "centralPark",
     "granvilleIsland",
     "landmarkCenterStPaul",
     "lombardStreet",
@@ -14,6 +15,7 @@ const locations = [
 const descriptions = [
     "Financial District, Boston, Massachusetts",
     "Calhoun Square (Uptown), Minneapolis, Minnesota",
+    "Central Park, New York, New York",
     "Granville Island, Vancouver, British Columbia, Canada",
     "near Landmark Center, St. Paul, Minnesota",
     "near Lombard Street, San Francisco, California",
