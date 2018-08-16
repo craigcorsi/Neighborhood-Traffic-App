@@ -1,59 +1,10 @@
 const StreetNetwork = require("./streetNetwork.js");
 
-const intersections = {
-    "CM1": { "coordinates": [150, 150] },
-    "CM2": { "coordinates": [150, 200] },
-    "CM3": { "coordinates": [150, 250] },
-    "CM4": { "coordinates": [150, 300] },
-    "M181_2": { "coordinates": [100, 200] },
-    "M181_4": { "coordinates": [200, 200] },
-    "M90_2": { "coordinates": [100, 250] },
-    "M90_4": { "coordinates": [200, 250] },
-};
-
-const roads = {
-    "ChudyN1": { "source": "CM1", "sink": "CM2" },
-    "ChudyN2": { "source": "CM2", "sink": "CM3" },
-    "ChudyN3": { "source": "CM3", "sink": "CM4" },
-    "MainE1": { "source": "CM2", "sink": "M181_2" },
-    "MainW1": { "source": "M181_2", "sink": "CM2" },
-    "MainW2": { "source": "CM2", "sink": "M181_4" },
-    "MainE2": { "source": "M181_4", "sink": "CM2" },
-    "StateE1": { "source": "CM3", "sink": "M90_2" },
-    "StateW1": { "source": "M90_2", "sink": "CM3" },
-    "StateW2": { "source": "CM3", "sink": "M90_4" },
-    "StateE2": { "source": "M90_4", "sink": "CM3" },
-    "ColbyNW1": { "source": "CM1", "sink": "M181_4" }
-};
-
-// generate population
-var person = {
-    index: 0,
-    position: null,
-    chanceOfMoving: .1,
-};
-function generatePopulation(n) {
-    var group = [];
-    for (let i = 0; i < n; i++) {
-        group.push({ ...person, index: i });
-    }
-    return group;
-}
-const population = generatePopulation(10);
-
-
-
-
-
-
-
-
-
-
 class SandpileCore {
     constructor(network, population) {
         this.network = network;
-        this.population = population;
+        this.population = [];
+        this.populate(this.network.numberOfVertices);
         this.assignNodesRandomly();
     }
 }
@@ -107,6 +58,19 @@ SandpileCore.prototype.detachPerson = function (person) {
     // remove reference to the person who once stood there
     peopleWith.splice(ind, 1);
 }
+
+SandpileCore.prototype.populate = function (n) {
+    this.population = [];
+    var person = {
+        index: 0,
+        position: null,
+        chanceOfMoving: .1,
+    };
+    for (let i = 0; i < n; i++) {
+        this.population.push({ ...person, index: i });
+    }
+    return this.population;
+};
 
 SandpileCore.prototype.sendPersonAlongRandomWay = function (person) {
     // place person randomly if not assigned
@@ -164,42 +128,5 @@ SandpileCore.prototype.takeOffOverflowAtAllNodes = function (threshold) {
         this.takeOffOverflowAtNode(v, threshold);
     }
 }
-
-// create sandpile core
-var net1 = new StreetNetwork(intersections, roads);
-var sandpile1 = new SandpileCore(net1, population);
-
-// console.log(sandpile1.population[0]);
-// console.log(sandpile1.population[1]);
-// sandpile1.sendPersonAlongRandomWay(sandpile1.population[0]);
-// sandpile1.sendPersonAlongRandomWay(sandpile1.population[1]);
-// console.log(sandpile1.population[0]);
-// console.log(sandpile1.population[1]);
-
-// console.log(sandpile1.population);
-// sandpile1.sendPopulationAlongWays();
-// console.log(sandpile1.population);
-
-// compare at all vertices where there are more inhabitants than out-neighboring nodes
-
-function printPeople() {
-    console.log(JSON.stringify(Object.keys(sandpile1.network.vertices).map(function (v) {
-        return [
-            sandpile1.network.vertices[v].inhabitants.length,
-            Object.keys(sandpile1.network.edges[v]).length
-        ];
-    })));
-}
-
-// printPeople();
-// sandpile1.takeOffOVerflowAtAllNodes();
-// printPeople();
-// sandpile1.takeOffOVerflowAtAllNodes();
-// printPeople();
-// sandpile1.takeOffOVerflowAtAllNodes();
-// printPeople();
-
-// console.log(JSON.stringify(sandpile1.decideAllPeople(), null, 2));
-
 
 module.exports = SandpileCore;
