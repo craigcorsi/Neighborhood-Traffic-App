@@ -48,13 +48,10 @@ function drawSVG(network) {
 
     // draw intersections on top of roads
 
-    console.log('test1');
-
     for (let v in nodes) {
         var symbol = draw.symbol();
             var od = nodes[v]["out-degree"];
             var pop = nodes[v]["inhabitants"].length;
-            console.log("test2")
             // color is RED if there are too many people at one vertex, otherwise somewhere between blue and brown
             var red = (pop >= od) ? 255 : Math.round(150 * ((pop + 1) / (od + 1)));
             var green = (pop >= od) ? 0 : 100;
@@ -62,13 +59,14 @@ function drawSVG(network) {
         symbol.rect(10,10)
             .fill(`rgb(${red}, ${green}, ${blue})`);
         var coords = nodes[v].coordinates;
-        var use = draw.use(symbol).move(coords[0], coords[1]);
+        var use = draw.use(symbol)
+        .attr("netref", v)
+        .move(coords[0], coords[1]);
         // console.log(`a graph node was created with value rgb(${red}, ${green}, ${blue})`)
     }
 
     //print svg
     var image = draw.svg();
-    // console.log(image);
     return [sandpile, image];
 }
 

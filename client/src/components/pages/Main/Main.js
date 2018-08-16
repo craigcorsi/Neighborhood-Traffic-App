@@ -36,6 +36,22 @@ class Main extends React.Component {
                 useID = parseInt(useID);
                 rectID = (useID - 1).toString();
                 rectID = "SvgjsRect" + rectID;
+
+                var netX = parseFloat(target.getAttribute("x")).toFixed(2);
+                var netY = parseFloat(target.getAttribute("y")).toFixed(2);
+                var netref = target.getAttribute("netref");
+                console.log(netX, netY, netref);
+
+                // find relative coordinates of node
+                document.getElementById('coordinatesOfSelected').innerText = 
+                        'x = ' + netX + ', y = ' + netY;
+                
+                // find number of people at node
+                var capacity = window.currentNetwork.network.vertices[netref]['out-degree']
+                var presence = window.currentNetwork.network.vertices[netref]['inhabitants'].length;
+                console.log(presence, capacity);
+                document.getElementById('numberAtSelected').innerText = 
+                        '' + presence + ' / ' + capacity;
                 
                 // store the html ID of the clicked square
                 placeholderStorageForActiveNode = rectID.slice();
@@ -93,7 +109,7 @@ class Main extends React.Component {
                 <Row>
                     <Col xs={12}>
                         <div className="appletInstructions">
-                        <h2>Map Instructions</h2>
+                        <h2>Instructions</h2>
                             <p>
                                 This map has been populated with a population of size proportional to the number 
                                 of nodes. Bluer nodes contain fewer people while grayer / browner nodes contain more.
@@ -116,7 +132,7 @@ class Main extends React.Component {
                             <div className="appletControls">
                                 <p>Total number of people: <span id="totalNumberOfInhabitants">0</span></p><br /><br />
                                 <p>Coordinates of selected vertex: <span id="coordinatesOfSelected">None</span></p>
-                                <p>Number of people at selected vertex: <span id="NumberAtSelected">None</span></p>
+                                <p>Number of people at selected vertex: <span id="numberAtSelected">None</span></p>
                                 <FormGroup>
                                     <ButtonGroup>
                                         <Button onClick={this.addPersonAtSelectedVertex}>Add Person</Button>
