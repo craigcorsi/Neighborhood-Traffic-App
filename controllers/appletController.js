@@ -12,6 +12,7 @@ module.exports = {
   findAllApplets: function(req, res) {
     db.Applet
       .find(req.query)
+      .select('id mapName description')
       .sort({ date: -1 })
       .then(dbModel => {
         res.json(dbModel)

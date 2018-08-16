@@ -12,6 +12,9 @@ const AppletSchema = new Schema({
     type: String,
     required: true
   },
+  description: {
+    type: String
+  },
   boundingBox: {
     max_lat: String,
     max_long: String,

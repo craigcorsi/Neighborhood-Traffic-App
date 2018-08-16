@@ -38,10 +38,10 @@ class Community extends React.Component {
                             Select from the list below a map you would like to explore!
                         </p>
                         {this.state.applets.map(function (datum, i) {
-                            console.log(this);
                             return <AppletOption
                                 mapName={datum.mapName}
                                 mapData={datum.applet_data}
+                                mapDescription={datum.description}
                                 mapId={datum._id}
                                 key={i}
                             />
