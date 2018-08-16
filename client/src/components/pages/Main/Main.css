@@ -2,3 +2,15 @@ svg {
     width: 1000px;
     height: 1000px;
 }
+
+h2, h3 {
+    text-align: center;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 28px;
+}

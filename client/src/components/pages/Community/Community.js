@@ -31,7 +31,12 @@ class Community extends React.Component {
             <Grid>
                 <Row>
                     <div className='container' id="place-applets-here">
-                        This community page will be dynamically populated with all maps in the database!
+                        <h2>
+                            Maps
+                        </h2>
+                        <p>
+                            Select from the list below a map you would like to explore!
+                        </p>
                         {this.state.applets.map(function (datum, i) {
                             console.log(this);
                             return <AppletOption

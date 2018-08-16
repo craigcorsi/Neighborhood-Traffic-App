@@ -7,7 +7,7 @@ class About extends React.Component {
         return (
             <Grid>
                 <Row>
-                    <Col xs={12} md={8}>
+                    <Col xs={12}>
                         <div class="about-this-project">
                             <h2>About This Project</h2>
                         
@@ -44,14 +44,11 @@ class About extends React.Component {
                             <ul>
                                 <li>
                                     <a href="https://github.com/craigcorsi">Craig</a>
-                                </li>
-                                <li>
+                                </li><li>
                                     <a href="https://github.com/shudson123">Sean</a>
-                                </li>
-                                <li>
+                                </li><li>
                                     <a href="https://github.com/powusu6128"> Philip</a>
-                                </li>
-                                <li>
+                                </li><li>
                                     <a href="https://github.com/tsstace">Stacey</a>
                                 </li>
                             </ul>
