@@ -12,6 +12,7 @@ module.exports = {
   findAllApplets: function(req, res) {
     db.Applet
       .find(req.query)
+      .select('id mapName description')
       .sort({ date: -1 })
       .then(dbModel => {
         res.json(dbModel)
@@ -26,7 +27,10 @@ module.exports = {
         var data = JSON.parse(dbModel.applet_data);
         var svg = drawSVG(data);
         // console.log(dbModel);
-        res.json(svg);
+        res.json({
+          data: svg[0],
+          svg: svg[1]
+        });
       })
       .catch(err => res.status(422).json(err));
   },
