@@ -72,21 +72,22 @@ class Main extends React.Component {
         console.log(this.state);
         return (
             <Grid>
-                <Row>
+                {/* <Row>
                     <Col xs={12} md={8}>
                         <Button bsStyle="primary">CREATE NEW MAP</Button>
                     </Col>
-                </Row>
+                </Row> */}
                 <Row>
-                    <Col xs={12} md={8}>
+                    <Col xs={12}>
                         <div>
-                            This section will be dynamically populated with maps the user has saved.
+                            <h2>Applet View</h2>
+                            <p>Instructions:</p>
                         </div>
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={12} md={8}>
-                        <div dangerouslySetInnerHTML={this.embedSVG(this.state.svg)}></div>
+                    <Col xs={12}>
+                        <div className="placeSVGHere" dangerouslySetInnerHTML={this.embedSVG(this.state.svg)}></div>
                     </Col>
                 </Row>
             </Grid>

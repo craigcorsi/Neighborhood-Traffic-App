@@ -26,7 +26,15 @@ class LandingPage extends React.Component {
                 <br></br>
                 <Row>
                     <div className='container'>
-                        <p>This is the landing page! The login button will be contained somewhere here.</p>
+                        <h2>Welcome!</h2>
+                        <div className="heroText">
+                            <p>
+                                Welcome to the Sandpile-Up Neighborhood Traffic App demo! Start by clicking
+                                "Community" above to get a list of maps for which we've created applets.
+                                These applets use a mathematical model to simulate foot traffic. For more 
+                                information about this model, click "About" above!
+                            </p>
+                        </div>
                     </div>
                 </Row>
             </Grid>

@@ -1,6 +1,7 @@
 svg {
     width: 1000px;
     height: 1000px;
+    margin: 0 auto;
 }
 
 h2, h3 {
@@ -13,4 +14,8 @@ h2 {
 
 h3 {
     font-size: 28px;
+}
+
+svg > rect {
+    margin: 0 auto;
 }
