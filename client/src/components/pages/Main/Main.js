@@ -20,21 +20,28 @@ class Main extends React.Component {
         const script = document.createElement("script");
         script.innerHTML = `
         
-        var circs = document.getElementsByClassName("ci");
+        var placeholderStorageForActiveNode;
         document.addEventListener("click", function(event){
             var target = event.target || event.srcElement
-            console.log(target);
-            console.log(target.tagName);
+
+            if (placeholderStorageForActiveNode && target.tagName == "use") {
+                var rect = document.getElementById(rectID);
+                rect.setAttribute("style", "stroke-width:0px");
+            }
 
             if (target.tagName == "use") {
                 var useID = target.getAttribute("id").slice(8);
                 useID = parseInt(useID);
                 rectID = (useID - 1).toString();
                 rectID = "SvgjsRect" + rectID;
-                console.log(useID, rectID)
+                
+                // store the html ID of the clicked square
+                placeholderStorageForActiveNode = rectID.slice();
+
+
                 var rect = document.getElementById(rectID);
-                rect.setAttribute("style", "outline:2px solid black");
-                rect.setAttribute("fill", "#ffff00");
+                rect.setAttribute("style", "stroke:black;stroke-width;3px");
+                // rect.setAttribute("fill", "#ffff00");
             }
         })
         
@@ -43,15 +50,19 @@ class Main extends React.Component {
         document.body.appendChild(script);
 
         if (this.state.mapId) {
-            const applet = this.draw(this.state.mapId, function (svg) {
+            const applet = this.draw(this.state.mapId, function (data) {
                 this.setState({
-                    svg: svg
+                    svg: data.svg
                 });
+
+                window.currentNetwork = data.data;
+                window.currentImage = data.svg;
+                
             }.bind(this));
         }
     }
 
-    addPersonAtSelectedVertex () {
+    addPersonAtSelectedVertex() {
         console.log(1);
     }
 
@@ -63,18 +74,13 @@ class Main extends React.Component {
 
     draw = (id, cb) => {
         API.getAppletById(id).then(function (response) {
-
-            console.log(response.data);
-            var svg = response.data;
-            cb(svg);
-
+            cb(response.data);
         }).catch(function (err) {
             console.log(err);
         });
     }
 
     render() {
-        console.log(this.state);
         return (
             <Grid>
                 {/* <Row>
@@ -98,7 +104,7 @@ class Main extends React.Component {
                             <div className="appletControls">
                                 <FormGroup>
                                     <ButtonGroup>
-                                        <Button onclick={this.addPersonAtSelectedVertex}>Add Person At Selected Vertex</Button>
+                                        <Button onClick={this.addPersonAtSelectedVertex}>Add Person At Selected Vertex</Button>
                                     </ButtonGroup>
                                 </FormGroup>
                             </div>

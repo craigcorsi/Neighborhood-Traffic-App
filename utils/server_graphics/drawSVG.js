@@ -74,7 +74,7 @@ function drawSVG(network) {
     //print svg
     var image = draw.svg();
     // console.log(image);
-    return image;
+    return [sandpile, image];
 }
 
 module.exports = drawSVG;
