@@ -59,7 +59,7 @@ class Main extends React.Component {
 
                 window.currentNetwork = data.data;
                 window.currentImage = data.svg;
-                
+
             }.bind(this));
         }
     }
@@ -92,9 +92,19 @@ class Main extends React.Component {
                 </Row> */}
                 <Row>
                     <Col xs={12}>
-                        <div>
-                            <h2>Map View</h2>
-                            <p>Instructions:</p>
+                        <div className="appletInstructions">
+                        <h2>Map Instructions</h2>
+                            <p>
+                                This map has been populated with a population of size proportional to the number 
+                                of nodes. Bluer nodes contain fewer people while grayer / browner nodes contain more.
+                                Click a node to select it, then click "Add Person" to increase the population there. 
+                            </p>
+                                
+                            <p>
+                                A node becomes red once it has as many people as the number of neighboring nodes, or more.
+                                Selecting a red node then clicking "De-Congest" will move one person at the node to each of the
+                                neighbors.
+                            </p>
                         </div>
                     </Col>
                 </Row>
@@ -104,9 +114,13 @@ class Main extends React.Component {
                             <div className="placeSVGHere" dangerouslySetInnerHTML={this.embedSVG(this.state.svg)}></div>
 
                             <div className="appletControls">
+                                <p>Total number of people: <span id="totalNumberOfInhabitants">0</span></p><br /><br />
+                                <p>Coordinates of selected vertex: <span id="coordinatesOfSelected">None</span></p>
+                                <p>Number of people at selected vertex: <span id="NumberAtSelected">None</span></p>
                                 <FormGroup>
                                     <ButtonGroup>
-                                        <Button onClick={this.addPersonAtSelectedVertex}>Add Person At Selected Vertex</Button>
+                                        <Button onClick={this.addPersonAtSelectedVertex}>Add Person</Button>
+                                        <Button onClick={this.addPersonAtSelectedVertex}>De-Congest</Button>
                                     </ButtonGroup>
                                 </FormGroup>
                             </div>

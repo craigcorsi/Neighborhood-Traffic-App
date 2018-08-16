@@ -1,7 +1,7 @@
 svg {
     width: 500px;
     height: 500px;
-    margin: 0 auto;
+    border: 2px solid gray;
 }
 
 h2, h3 {
@@ -20,12 +20,44 @@ svg > rect {
     margin: 0 auto;
 }
 
+.placeSVGHere, .appletControls {
+    display: inline-block;
+}
+
 .placeSVGHere {
     width: 500px;
     height: 500px;
 }
 
+.appletConsole {
+    margin-left: 15px;
+}
+
+.appletInstructions {
+    margin: 10px;
+    margin-left: 0;
+    padding: 15px;
+    padding-top: 0;
+
+    border: 2px solid gray;
+    width: 100%;
+    background-color: black;
+
+    text-align: center;
+    font-size: 20px;
+}
+
 .appletControls {
     margin: 10px;
+    margin-top: 0;
     padding: 15px;
+    position: absolute;
+    top: 0;
+
+    border: 2px solid gray;
+    width: 600px;
+    background-color: black;
+
+    text-align: center;
+    font-size: 20px;
 }
