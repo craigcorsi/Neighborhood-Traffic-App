@@ -66,7 +66,7 @@ function drawSVG(network) {
 
     for (let v in nodes) {
         var symbol = draw.symbol();
-        symbol.circle(10).fill("#c81");
+        symbol.rect(10,10).fill("#c81");
         var coords = nodes[v].coordinates;
         var use = draw.use(symbol).move(coords[0], coords[1]);
     }

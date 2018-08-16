@@ -29,18 +29,19 @@ class Main extends React.Component {
             if (target.tagName == "use") {
                 var useID = target.getAttribute("id").slice(8);
                 useID = parseInt(useID);
-                circleID = (useID - 1).toString();
-                circleID = "SvgjsCircle" + circleID;
-                console.log(useID, circleID)
-                var circle = document.getElementById(circleID);
-                circle.setAttribute("fill", "#ffff00");
+                rectID = (useID - 1).toString();
+                rectID = "SvgjsRect" + rectID;
+                console.log(useID, rectID)
+                var rect = document.getElementById(rectID);
+                rect.setAttribute("style", "outline:2px solid black");
+                rect.setAttribute("fill", "#ffff00");
             }
         })
         
         `;
         script.async = true;
         document.body.appendChild(script);
-        
+
         if (this.state.mapId) {
             const applet = this.draw(this.state.mapId, function (svg) {
                 this.setState({
@@ -50,7 +51,11 @@ class Main extends React.Component {
         }
     }
 
-    embedSVG (svg) {
+    addPersonAtSelectedVertex () {
+        console.log(1);
+    }
+
+    embedSVG(svg) {
         return {
             __html: svg
         }
@@ -80,17 +85,34 @@ class Main extends React.Component {
                 <Row>
                     <Col xs={12}>
                         <div>
-                            <h2>Applet View</h2>
+                            <h2>Map View</h2>
                             <p>Instructions:</p>
                         </div>
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={12}>
-                        <div className="placeSVGHere" dangerouslySetInnerHTML={this.embedSVG(this.state.svg)}></div>
+                        <div className="appletConsole">
+                            <div className="placeSVGHere" dangerouslySetInnerHTML={this.embedSVG(this.state.svg)}></div>
+
+                            <div className="appletControls">
+                                <FormGroup>
+                                    <ButtonGroup>
+                                        <Button onclick={this.addPersonAtSelectedVertex}>Add Person At Selected Vertex</Button>
+                                    </ButtonGroup>
+                                </FormGroup>
+                            </div>
+                        </div>
                     </Col>
                 </Row>
             </Grid>
+            // <FormGroup>
+            //     <ButtonGroup>
+            //         <Button bsStyle="primary"><Glyphicon glyph="star align-right" />Save</Button>
+            //         <Button><Glyphicon glyph="pencil" />Edit</Button>
+            //         <Button bsStyle="danger"><Glyphicon glyph="trash" />Delete</Button>
+            //     </ButtonGroup>
+            // </FormGroup>
         );
     }
 };
