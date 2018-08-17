@@ -11,10 +11,6 @@
     padding: 15px;
 }
 
-<<<<<<< HEAD
-.databaseAppletButton{
-    background: #cc66ff;
-=======
 .databaseApplet > * {
     text-align: center;
     margin: 0 auto;
@@ -38,5 +34,4 @@
 .databaseApplet button:hover {
     width: 100%;
     background-color: rgb(179, 122, 122);
->>>>>>> master
 }
