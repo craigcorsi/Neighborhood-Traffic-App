@@ -26,17 +26,6 @@ class LandingPage extends React.Component {
                 <br></br>
                 <Row>
                     <div className='container'>
-<<<<<<< HEAD
-                        <p>Please Enter your name and email address to use the app</p>
-                        <label>Name:
-                            <input type="text" />  
-                        </label>
-                        <br/>
-                        <label>Email:
-                            <input type="text" />  
-                        </label>
-                        
-=======
                         <h2>Welcome!</h2>
                         <div className="heroText">
                             <p>
@@ -46,7 +35,6 @@ class LandingPage extends React.Component {
                                 information, click "About" above!
                             </p>
                         </div>
->>>>>>> master
                     </div>
                 </Row>
             </Grid>
