@@ -3,6 +3,7 @@ import "./AppletOption.css";
 
 export class AppletOption extends React.Component {
     state = {
+        description: this.props.mapDescription,
         mapData: this.props.mapData,
         mapId: this.props.mapId,
         mapName: this.props.mapName,
@@ -18,10 +19,11 @@ export class AppletOption extends React.Component {
         return (
             <div className='container'>
                 <div className="databaseApplet">
-                    <p>Applet name: {this.state.mapName}</p>
+                    <p>{this.state.description}</p>
+                    
                     <form action={this.state.urlRedirect}>
                         <button className={"databaseAppletButton"} >
-                            Load This Applet
+                            Load This Map
                         </button>
                     </form>
                 </div>
