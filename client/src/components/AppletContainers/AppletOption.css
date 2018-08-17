@@ -1,6 +1,6 @@
 .databaseApplet {
-    height: 75px;
-    width: 100%;
+    height: 85px;
+    width: 90%;
 
     background-color: #222;
     color: #222;
@@ -11,6 +11,32 @@
     padding: 15px;
 }
 
+<<<<<<< HEAD
 .databaseAppletButton{
     background: #cc66ff;
+=======
+.databaseApplet > * {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.databaseApplet > form {
+    margin-top: 10px;
+    width: 90%;
+}
+
+.databaseApplet button {
+    width: 100%;
+    color: black;
+    background-color: rgb(177, 94, 94);
+    border: 3px solid white;
+    border-radius: 2px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.databaseApplet button:hover {
+    width: 100%;
+    background-color: rgb(179, 122, 122);
+>>>>>>> master
 }

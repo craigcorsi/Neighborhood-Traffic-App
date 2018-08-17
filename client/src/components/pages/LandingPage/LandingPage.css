@@ -1,3 +1,17 @@
 * {
     color: white;
 }
+
+.heroText {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+
+    background-color: black;
+}
+
+.heroText p {
+    line-height: 2;
+    font-size: 18px;
+}

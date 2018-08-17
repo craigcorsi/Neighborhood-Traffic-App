@@ -26,6 +26,7 @@ class LandingPage extends React.Component {
                 <br></br>
                 <Row>
                     <div className='container'>
+<<<<<<< HEAD
                         <p>Please Enter your name and email address to use the app</p>
                         <label>Name:
                             <input type="text" />  
@@ -35,6 +36,17 @@ class LandingPage extends React.Component {
                             <input type="text" />  
                         </label>
                         
+=======
+                        <h2>Welcome!</h2>
+                        <div className="heroText">
+                            <p>
+                                Welcome to the Sandpile-Up Neighborhood Traffic App demo! Start by clicking
+                                "Community" above to see our list of maps.
+                                This app uses a mathematical model to simulate foot traffic in city neighborhoods. For more 
+                                information, click "About" above!
+                            </p>
+                        </div>
+>>>>>>> master
                     </div>
                 </Row>
             </Grid>

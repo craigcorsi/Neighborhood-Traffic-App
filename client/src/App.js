@@ -28,6 +28,7 @@ class App extends Component {
       <Router>
         <div>
           <h1 className="App-title">Welcome to the Neighborhood, {this.props.name}.</h1>
+          <h1 className="App-title">DEMO</h1> 
           <Header />
           <Switch>
             <Route exact path ="/" component={LandingPage} />
