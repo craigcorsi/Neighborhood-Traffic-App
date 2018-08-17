@@ -7,16 +7,6 @@ class About extends React.Component {
         return (
             <Grid>
                 <Row>
-<<<<<<< HEAD
-                    <Col xs={12} md={8}>
-                        <p>Some text where we describe the app and our process</p>
-                        <p>Additional reading:</p>
-                        <p>
-                            <ul classname="reading">
-                                <li> <a href="http://nautil.us/issue/23/dominoes/the-amazing-autotuning-sandpile">"The Amazing Autotuning Sandpile" Ellenberg [2015] </a></li>
-                            </ul> 
-                        </p>
-=======
                     <Col xs={12}>
                         <div class="about-this-project">
                             <h2>About This Project</h2>
@@ -72,7 +62,6 @@ class About extends React.Component {
                                 </ul>
                             </p>
                         </div>
->>>>>>> master
                     </Col>
                 </Row>
             </Grid>
