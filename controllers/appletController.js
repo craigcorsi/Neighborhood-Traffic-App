@@ -32,10 +32,9 @@ module.exports = {
   },
 
   createApplet: function(req, res) {
-      user = db.userQuery({user:"Philip", map:{max:"2",min:"23344",long:"345678909876543",lat:"56789087"},pic:"base64,"});
     db.Article
       .create(req.body)
-      .then(dbModel => res.json(user))
+      .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   updateApplet: function(req, res) {

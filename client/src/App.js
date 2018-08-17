@@ -6,6 +6,7 @@ import Main from './components/pages/Main';
 import LandingPage from './components/pages/LandingPage';
 import Community from './components/pages/Community';
 import About from './components/pages/About';
+import {HomePage} from './components/pages/HomePage';
 
 // import Archive from './components/Archive';
 import Footer from './components/Footer';
@@ -29,11 +30,12 @@ class App extends Component {
           <h1 className="App-title">Welcome to the Neighborhood, {this.props.name}.</h1>
           <Header />
           <Switch>
-            <Route exact path="/" component={LandingPage} />
+            <Route exact path ="/" component={LandingPage} />
             <Route path="/main/:mapId" component={Main} />
             <Route path="/community" component={Community} />
             <Route path="/about" component={About} />
             <Route component={LandingPage} />
+            <Route exact path ="/" component={HomePage} />
           </Switch>
           <Footer />
         </div>

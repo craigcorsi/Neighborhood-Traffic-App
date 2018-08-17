@@ -42,7 +42,7 @@ function drawSVG(network) {
     const draw = SVG(document.documentElement);
 
     // use svg.js as normal
-    draw.rect(500, 500).fill('#ddd');
+    draw.rect(600, 600).fill('#ddd');
 
     // load network from sandpile object
     var ways = sandpile.network.edges;

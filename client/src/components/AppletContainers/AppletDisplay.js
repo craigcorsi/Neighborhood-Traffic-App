@@ -9,7 +9,7 @@ export class AppletOption extends React.Component {
         urlRedirect: `/main/${this.props.mapId}`
     }
 
-    loadApplet() {
+    componentDidMount() {
         let name = this.state.mapName;
         console.log(name);
     }
