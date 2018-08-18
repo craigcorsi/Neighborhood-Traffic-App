@@ -36,7 +36,7 @@ class App extends Component {
             <Route path="/community" component={Community} />
             <Route path="/about" component={About} />
             <Route component={LandingPage} />
-            <Route exact path ="/" component={HomePage} />
+            <Route exact path ="/home" component={HomePage} />
           </Switch>
           <Footer />
         </div>
