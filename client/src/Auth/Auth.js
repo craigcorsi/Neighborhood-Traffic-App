@@ -36,7 +36,7 @@ export default class Auth {
     this.lock.on('authorization_error', (err) => {
       console.log(err);
       alert(`Error: ${err.error}. Check the console for further details.`);
-      history.replace('/home');
+      history.replace('/landing');
     });
   }
 
@@ -47,8 +47,8 @@ export default class Auth {
       localStorage.setItem('access_token', authResult.accessToken);
       localStorage.setItem('id_token', authResult.idToken);
       localStorage.setItem('expires_at', expiresAt);
-      // navigate to the home route
-      history.replace('/home');
+      // navigate to the home route //Stacey
+      history.replace('/landing');
       console.log(authResult.idTokenPayload.sub)
     }
   }
