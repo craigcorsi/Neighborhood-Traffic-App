@@ -10,8 +10,13 @@
     regenerator-runtime "^0.11.1"
 
 "@types/node@*":
+<<<<<<< HEAD
   version "10.9.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.9.0.tgz#d2824d342b1d733e22ef169708bd254924db16bd"
+=======
+  version "10.9.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.9.1.tgz#06f002136fbcf51e730995149050bb3c45ee54e6"
+>>>>>>> master
 
 JSONStream@0.8.0:
   version "0.8.0"

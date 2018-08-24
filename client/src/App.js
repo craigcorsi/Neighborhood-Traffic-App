@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route} from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from './components/Header';
 import Main from './components/pages/Main';
- import LandingPage from './components/pages/LandingPage';
- import Community from './components/pages/Community';
- import About from './components/pages/About';
+import LandingPage from './components/pages/LandingPage';
+import Community from './components/pages/Community';
+import About from './components/pages/About';
 import AuthApp from "./AuthApp/AuthApp"
 import AuthPage from "./AuthPage/AuthPage"
 import Callback from './Callback/Callback';
@@ -28,33 +28,33 @@ const handleAuthentication = (nextState, replace) => {
 const App = () => (
   <Router history={history} component={AuthApp}>
     <div>
-     <Header /> 
-    <h1 className="App-title">Welcome to the Neighborhood</h1>           
-    <h1 className="App-title">DEMO</h1>
-        <Route exact path="/" render={(props) => <AuthApp auth={auth} {...props} />} />
-        <Route exact path="/community" render={(props) => <Community {...props} />} />
-        <Route exact path="/callback" render={(props) => <Callback {...props} />} />
-        <Route exact path="/about" render={(props) => <About {...props} />} />
-        <Route exact path="/landing" render={(props) => <LandingPage {...props} />} />
- {/* <Route exact path="/dashboard" render={(props) => <Dashboard {...props} />} />        */}
-        <Route exact path="/main/:mapId" render={(props) => <Main {...props} />} />       
-      </div>
+      <Header />
+      <h1 className="App-title">Welcome to the Neighborhood</h1>
+      <h1 className="App-title">DEMO</h1>
+      <Route exact path="/" render={(props) => <AuthApp auth={auth} {...props} />} />
+      <Route exact path="/community" render={(props) => <Community {...props} />} />
+      <Route exact path="/callback" render={(props) => <Callback {...props} />} />
+      <Route exact path="/about" render={(props) => <About {...props} />} />
+      <Route exact path="/landing" render={(props) => <LandingPage {...props} />} />
+      {/* <Route exact path="/dashboard" render={(props) => <Dashboard {...props} />} />        */}
+      <Route exact path="/main/:mapId" render={(props) => <Main {...props} />} />
+    </div>
   </Router>
 
-// export const makeMainRoutes = () => {
-//   return (
-//     <Router history={history} component={App}>
-//       <div>
-//         <Route path="/" render={(props) => <App auth={auth} {...props} />} />
-//         <Route path="/home" render={(props) => <Home auth={auth} {...props} />} />
-//         <Route path="/callback" render={(props) => {
-//           handleAuthentication(props);
-//           return <Callback {...props} /> 
-//         }}/>
-//       </div>
-//     </Router>
-//   );
- );
+  // export const makeMainRoutes = () => {
+  //   return (
+  //     <Router history={history} component={App}>
+  //       <div>
+  //         <Route path="/" render={(props) => <App auth={auth} {...props} />} />
+  //         <Route path="/home" render={(props) => <Home auth={auth} {...props} />} />
+  //         <Route path="/callback" render={(props) => {
+  //           handleAuthentication(props);
+  //           return <Callback {...props} /> 
+  //         }}/>
+  //       </div>
+  //     </Router>
+  //   );
+);
 
 
 // class App extends Component {
