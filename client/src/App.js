@@ -37,7 +37,7 @@ const App = () => (
         <Route exact path="/about" render={(props) => <About {...props} />} />
         <Route exact path="/landing" render={(props) => <LandingPage {...props} />} />
  {/* <Route exact path="/dashboard" render={(props) => <Dashboard {...props} />} />        */}
-        <Route exact path="/main/pg1" render={(props) => <Main {...props} />} />       
+        <Route exact path="/main/:mapId" render={(props) => <Main {...props} />} />       
       </div>
   </Router>
 
