@@ -176,7 +176,7 @@ class Main extends React.Component {
 
     render() {
         return (
-            <Grid>
+            <Grid className="main-map-display">
                 {/* <Row>
                     <Col xs={12} md={8}>
                         <Button bsStyle="primary">CREATE NEW MAP</Button>

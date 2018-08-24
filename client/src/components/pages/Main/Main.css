@@ -1,39 +1,39 @@
-svg {
+.main-map-display svg {
     width: 500px;
     height: 500px;
     border: 2px solid gray;
 }
 
-h2, h3 {
+.main-map-display h2, .main-map-display h3 {
     text-align: center;
 }
 
-h2 {
+.main-map-display h2 {
     font-size: 40px;
 }
 
-h3 {
+.main-map-display h3 {
     font-size: 28px;
 }
 
-svg > rect {
+.main-map-display svg > rect {
     margin: 0 auto;
 }
 
-.placeSVGHere, .appletControls {
+.main-map-display .placeSVGHere, .main-map-display .appletControls {
     display: inline-block;
 }
 
-.placeSVGHere {
+.main-map-display .placeSVGHere {
     width: 500px;
     height: 500px;
 }
 
-.appletConsole {
+.main-map-display .appletConsole {
     margin-left: 15px;
 }
 
-.appletInstructions {
+.main-map-display .appletInstructions {
     margin: 10px;
     margin-left: 0;
     padding: 15px;
@@ -47,7 +47,7 @@ svg > rect {
     font-size: 20px;
 }
 
-.appletControls {
+.main-map-display .appletControls {
     margin: 10px;
     margin-top: 0;
     padding: 15px;
