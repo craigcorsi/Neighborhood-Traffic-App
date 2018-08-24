@@ -2,6 +2,7 @@ import React from 'react';
 import "./LandingPage.css";
 import { ButtonGroup, Button, FormGroup, InputGroup, FormControl, Grid, Row, Col, Media, Glyphicon } from 'react-bootstrap';
 
+
 class LandingPage extends React.Component {
     render() {
         return (

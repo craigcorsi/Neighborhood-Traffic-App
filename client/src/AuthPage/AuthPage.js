@@ -28,7 +28,6 @@ class AuthPage extends Component {
             //     </a>
             //     {' '}to continue.
             //   </h4>
-              
             // )&&
             <div className="container-fluid" style={
               {backgroundImage: `url(${Background})`,

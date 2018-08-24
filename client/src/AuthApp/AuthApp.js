@@ -23,15 +23,15 @@ class AuthApp extends Component {
         <Navbar fluid>
           <Navbar.Header>
             <Navbar.Brand>
-              <p>Neighborhood Traffic App</p>
+            
             </Navbar.Brand>
-            <Button
+            {/* <Button
               bsStyle="primary"
               className="btn-margin"
               onClick={this.goTo.bind(this, 'home')}
             >
               Home
-            </Button>
+            </Button> */}
             {
               !isAuthenticated() && (
                   <Button

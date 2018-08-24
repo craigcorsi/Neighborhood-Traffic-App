@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route} from "react-router-dom";
-// import Header from './components/Header';
+import Header from './components/Header';
 // import Main from './components/pages/Main';
  import LandingPage from './components/pages/LandingPage';
  import Community from './components/pages/Community';
@@ -28,6 +28,7 @@ const handleAuthentication = (nextState, replace) => {
 const App = () => (
   <Router history={history} component={AuthApp}>
     <div>
+     <Header /> 
     <h1 className="App-title">Welcome to the Neighborhood</h1>           
     <h1 className="App-title">DEMO</h1>
         <Route exact path="/" render={(props) => <AuthApp auth={auth} {...props} />} />
