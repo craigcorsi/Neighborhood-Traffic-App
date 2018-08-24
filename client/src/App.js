@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import Header from './components/Header';
-// import Main from './components/pages/Main';
+import Main from './components/pages/Main';
  import LandingPage from './components/pages/LandingPage';
  import Community from './components/pages/Community';
  import About from './components/pages/About';
@@ -37,7 +37,7 @@ const App = () => (
         <Route exact path="/about" render={(props) => <About {...props} />} />
         <Route exact path="/landing" render={(props) => <LandingPage {...props} />} />
  {/* <Route exact path="/dashboard" render={(props) => <Dashboard {...props} />} />        */}
- {/* <Route exact path="/main/pg1" render={(props) => <Main {...props} />} />        */}
+        <Route exact path="/main/:mapId" render={(props) => <Main {...props} />} />       
       </div>
   </Router>
 
