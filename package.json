@@ -21,6 +21,7 @@
   "dependencies": {
     "auth0": "^2.11.0",
     "auth0-js": "^9.7.3",
+    "auth0-lock": "^11.8.1",
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "cheerio": "^1.0.0-rc.2",
@@ -30,7 +31,9 @@
     "jwt-decode": "^2.2.0",
     "mongoose": "^5.2.7",
     "query-overpass": "^1.5.3",
+    "react": "^16.4.2",
     "react-bootstrap": "^0.32.1",
+    "react-dom": "^16.4.2",
     "react-router-dom": "^4.3.1",
     "svg.js": "^2.6.5",
     "svgdom": "0.0.15"
