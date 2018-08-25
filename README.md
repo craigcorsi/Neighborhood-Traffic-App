@@ -37,6 +37,7 @@ Courtesy of R.M. Dimeo; the color of a pixel records the number of 'topples' tha
  ![](http://williamavasquez.herokuapp.com/img/js.png)
  ![](https://github.com/heroku/favicon/blob/master/favicon.iconset/icon_32x32.png)
  ![](http://svgjs.com/assets/images/logo-svg-js-01d-128.png)
+ ![](https://cdn.auth0.com/styleguide/components/1.0.8/media/logos/img/badge.png)
  
 
 # Node packages included:
