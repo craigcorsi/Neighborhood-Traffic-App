@@ -1,4 +1,4 @@
-![Logo](./client/src/images/NTAlogo.png) A MERN application that renders a cross section of street data as interactive applets, utilizing the abelian sandpile model to study traffic flow and crowd behavior in a given neighborhood.  Examine locations as unique as Lombard Street in San Francisco and Notting Hill in West London before you peruse areas a little closer to home such as Lyn/Lake, Calhoun Square and downtown Saint Paul.  What are abelian sandpiles and what can they teach us about patterns that emerge over time?  Please keep reading to learn more about this fascinating topic!  
+![Logo](./client/src/images/NTAlogo.png) A MERN application that renders a cross section of street data as interactive applets, utilizing the abelian sandpile model to study traffic flow and crowd behavior in a given neighborhood.  Examine locations as unique as Lombard Street in San Francisco and Notting Hill in West London before you peruse areas a little closer to home, such as: Lyn/Lake, Calhoun Square and downtown Saint Paul.  What are abelian sandpiles and what can they teach us about patterns that emerge over time?  Please keep reading to learn more about this fascinating topic!  
 
 # Dev Team: 
 
@@ -29,12 +29,17 @@ Courtesy of R.M. Dimeo; the color of a pixel records the number of 'topples' tha
 - NodeJS
 - Javascript
 - Heroku
+- SVG.js
+- Auth0
 
  ![](http://williamavasquez.herokuapp.com/img/react.png) 
  ![](http://williamavasquez.herokuapp.com/img/mongo.png)
  ![](http://williamavasquez.herokuapp.com/img/node.png)
  ![](http://williamavasquez.herokuapp.com/img/js.png)
  ![](https://github.com/heroku/favicon/blob/master/favicon.iconset/icon_32x32.png)
+ ![](http://svgjs.com/assets/images/logo-svg-js-01d-128.png)
+ ![](https://cdn.auth0.com/website/assets/pages/press/img/auth0-badge-5c9de7e409.svg)
+ 
 
 # Node packages included:
 - React
@@ -44,7 +49,8 @@ Courtesy of R.M. Dimeo; the color of a pixel records the number of 'topples' tha
 - Express
 - Body-parser
 - Mongoose
-- Svgjs
+- SVG.js
+- Auth0
 
 # Create React Express App
 
