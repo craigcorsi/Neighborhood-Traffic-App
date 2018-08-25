@@ -30,6 +30,7 @@ Courtesy of R.M. Dimeo; the color of a pixel records the number of 'topples' tha
 - Javascript
 - Heroku
 - SVG.js
+- Auth0
 
  ![](http://williamavasquez.herokuapp.com/img/react.png) 
  ![](http://williamavasquez.herokuapp.com/img/mongo.png)
