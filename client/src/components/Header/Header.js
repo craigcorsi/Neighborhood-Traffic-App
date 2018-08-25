@@ -5,7 +5,7 @@ import { PageHeader } from 'react-bootstrap';
 
 const Header = props =>
 <div className='container'>
-    <PageHeader className="App-header">Sandpile-Up <small>Traffic simulator</small>
+    <PageHeader className="App-header">Sandpile-Up Traffic Simulator
     </PageHeader>
     <HeaderNav />     
 </div>;

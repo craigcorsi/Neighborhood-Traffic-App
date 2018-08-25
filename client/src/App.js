@@ -7,15 +7,12 @@ import LandingPage from './components/pages/LandingPage';
 import Community from './components/pages/Community';
 import About from './components/pages/About';
 import AuthApp from "./AuthApp/AuthApp"
-import AuthPage from "./AuthPage/AuthPage"
+//import AuthPage from "./AuthPage/AuthPage"
 import Callback from './Callback/Callback';
 import Auth from './Auth/Auth';
 import history from './history';
-//import NoMatch from "./components/pages/NoMatch";
+// import Footer from './components/Footer';
 
-// import Archive from './components/Archive';
-import Footer from './components/Footer';
-import API from "./utils/API";
 
 const auth = new Auth();
 
@@ -25,65 +22,53 @@ const handleAuthentication = (nextState, replace) => {
   }
 }
 
-const App = () => (
-  <Router history={history} component={AuthApp}>
+// const App = () => (
+  class App extends Component {
+    constructor (props){
+      super(props)
+
+      this.state={
+        isLoggedIn:false
+      }
+    }
+
+    render(){
+      console.log(auth.isAuthenticated());
+      return(
+        <Router history={history} component={AuthApp}>
     <div>
       <Header />
-      <h1 className="App-title">Welcome to the Neighborhood</h1>
+      <h1 className="App-title">Welcome to the neighborhood, neighborino!</h1>
       <h1 className="App-title">DEMO</h1>
-      <Route exact path="/" render={(props) => <AuthApp auth={auth} {...props} />} />
-      <Route exact path="/community" render={(props) => <Community {...props} />} />
-      <Route exact path="/callback" render={(props) => <Callback {...props} />} />
-      <Route exact path="/about" render={(props) => <About {...props} />} />
+
+  {/* The ternary statement in these routes prevents users from accessing pages on the nav bar without logging in first */}      
+
+      <Route exact path="/community" render={(props) => (
+        auth.isAuthenticated() ? <Community {...props} /> : <AuthApp auth={auth} {...props} />
+      )}/>
+
+      <Route exact path="/about" render={(props) => (
+        auth.isAuthenticated() ? <About {...props} /> : <AuthApp auth={auth} {...props} />
+      )}/>
+      
+      <Route exact path="/main/:mapId" render={(props) => (
+        auth.isAuthenticated() ? <Main {...props} /> : <AuthApp auth={auth} {...props} />
+      )}/>
+
+  {/* These routes are not available in the nav bar */}    
+    
       <Route exact path="/landing" render={(props) => <LandingPage {...props} />} />
-      {/* <Route exact path="/dashboard" render={(props) => <Dashboard {...props} />} />        */}
-      <Route exact path="/main/:mapId" render={(props) => <Main {...props} />} />
+
+      <Route exact path="/" render={(props) => <AuthApp auth={auth} {...props} />} />
+
+      <Route exact path="/callback" render={(props) => <Callback {...props} />} />
+
     </div>
   </Router>
+      )
+    }
 
-  // export const makeMainRoutes = () => {
-  //   return (
-  //     <Router history={history} component={App}>
-  //       <div>
-  //         <Route path="/" render={(props) => <App auth={auth} {...props} />} />
-  //         <Route path="/home" render={(props) => <Home auth={auth} {...props} />} />
-  //         <Route path="/callback" render={(props) => {
-  //           handleAuthentication(props);
-  //           return <Callback {...props} /> 
-  //         }}/>
-  //       </div>
-  //     </Router>
-  //   );
-);
-
-
-// class App extends Component {
-//   state = {
-//     currentAppletData: "test"
-//   }
-
-//    render() {
-
-//     return (
-//       <Router>
-//         <div>
-//           <h1 className="App-title">Welcome to the Neighborhood, {this.props.name}.</h1>
-//           <h1 className="App-title">DEMO</h1> 
-//           <Header />
-//              <Switch>
-//             <Route exact path="/" component={LandingPage} /> 
-//             <Route path="/main/:mapId" component={Main} />
-//             <Route path="/community" component={Community} />
-//             <Route path="/about" component={About} 
-//             <Route component={LandingPage} />
-//           </Switch> 
-//           <Footer />
-//         </div>
-//       </Router>
-
-//     )
-//   }
-// };
+  } 
 
 export default App;
 

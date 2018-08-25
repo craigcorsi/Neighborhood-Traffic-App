@@ -20,11 +20,6 @@ class AuthApp extends Component {
 
     return (
       <div>
-        <Navbar fluid>
-          <Navbar.Header>
-            <Navbar.Brand>
-            
-            </Navbar.Brand>
             {/* <Button
               bsStyle="primary"
               className="btn-margin"
@@ -36,8 +31,10 @@ class AuthApp extends Component {
               !isAuthenticated() && (
                   <Button
                     bsStyle="primary"
+                    bsSize="large"
                     className="btn-margin"
                     onClick={this.login.bind(this)}
+                    style={{display:"block", margin:"auto"}}
                   >
                     Log In
                   </Button>
@@ -47,15 +44,16 @@ class AuthApp extends Component {
               isAuthenticated() && (
                   <Button
                     bsStyle="primary"
+                    bsSize="large"
                     className="btn-margin"
                     onClick={this.logout.bind(this)}
+ //                    onClick={this.goTo.bind(this, 'home')}
+                    style={{display:"block", margin:"auto"}}
                   >
                     Log Out
                   </Button>
                 )
             }
-          </Navbar.Header>
-        </Navbar>
       </div>
     );
   }
