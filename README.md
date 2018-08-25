@@ -29,6 +29,7 @@ Courtesy of R.M. Dimeo; the color of a pixel records the number of 'topples' tha
 - NodeJS
 - Javascript
 - Heroku
+- SVG.js
 
  ![](http://williamavasquez.herokuapp.com/img/react.png) 
  ![](http://williamavasquez.herokuapp.com/img/mongo.png)
@@ -36,6 +37,7 @@ Courtesy of R.M. Dimeo; the color of a pixel records the number of 'topples' tha
  ![](http://williamavasquez.herokuapp.com/img/js.png)
  ![](https://github.com/heroku/favicon/blob/master/favicon.iconset/icon_32x32.png)
  ![](http://svgjs.com/assets/images/logo-svg-js-01d-128.png)
+ ![](https://diycode.b0.upaiyun.com/developer_organization/avatar/372.jpg)
 
 # Node packages included:
 - React
