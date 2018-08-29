@@ -7,6 +7,8 @@
 - :octocat: [Philip](https://github.com/powusu6128)
 - :octocat: [Stacey](https://github.com/tsstace)
 
+![Screenshot](./client/src/images/Landing.jpg)
+
 
 # About Abelian Sandpiles:
 
