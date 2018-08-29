@@ -1,5 +1,7 @@
 ![Logo](./client/src/images/NTAlogo.png) A MERN application that renders a cross section of street data as interactive applets, utilizing the abelian sandpile model to study traffic flow and crowd behavior in a given neighborhood.  Examine locations as unique as Lombard Street in San Francisco and Notting Hill in West London before you peruse areas a little closer to home, such as: Lyn/Lake, Calhoun Square and downtown Saint Paul.  What are abelian sandpiles and what can they teach us about patterns that emerge over time?  Please keep reading to learn more about this fascinating topic!  
 
+![Screenshot](./client/src/images/traffic.jpg)
+
 # Dev Team: 
 
 - :octocat: [Craig](https://github.com/craigcorsi)
